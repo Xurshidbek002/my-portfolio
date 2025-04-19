@@ -140,7 +140,7 @@ function Navbar() {
             <div
               className={`h-[3px] rounded-2xl w-9 bg-gradient-to-r from-blue-500 to-purple-800 transition-all duration-300${
                 open
-                  ? "duration-500 bg-gradient-to-r from-blue-500/0 to-purple-800/0 -translate-x-10"
+                  ? "duration-500 bg-gradient-to-r from-blue-500/0 to-purple-800/0"
                   : ""
               }`}
             ></div>
