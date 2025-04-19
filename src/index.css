@@ -1,0 +1,33 @@
+@import "tailwindcss";
+
+* {
+  font-family: "Roboto", serif;
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(99, 102, 241, 0.3) rgba(12, 5, 53, 0.356);
+}
+
+html,
+body {
+  overflow-x: hidden;
+  background: #030014;
+  scroll-behavior: smooth !important;
+  scrollbar-width: 1px;
+}
+
+.container {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 0.5rem;
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
