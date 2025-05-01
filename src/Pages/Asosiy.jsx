@@ -10,18 +10,22 @@ const base = [
   {
     id: 1,
     text: "React",
+    delay: "200",
   },
   {
     id: 2,
     text: "JavaScript",
+    delay: "250",
   },
   {
     id: 3,
     text: "NodeJs",
+    delay: "300",
   },
   {
     id: 4,
     text: "Tailwind",
+    delay: "350",
   },
 ];
 
@@ -48,15 +52,18 @@ const Asosiy = () => {
   return (
     <div id="asosiy" className="flex items-center justify-center h-screen">
       <div className="container  w-full">
-        <div className="flex flex-col md:flex-row md:justify-between items-center gap-10">
+        <div className="flex flex-col md:flex-row md:justify-between items-center gap-20">
           {/* Chap qism--------------------------------------------------------------------------------- */}
           <div className="md:pl-10 z-50 flex flex-col items-center md:items-start text-left gap-5">
-            <p className="md:flex hidden items-center text-sm text-blue-300 font-medium bg-black/5 backdrop-blur-xl px-4 py-2 rounded-full border border-white/10">
+            <p className="flex mt-5  items-center text-[10px] md:text-[15px] text-blue-300 hover:bg-blue-500/20 duration-700 hover:shadow-[0_0_45px_blue]/30 hover:text-white font-medium bg-black/5 backdrop-blur-xl px-4 py-2 rounded-full border border-white/10">
               <LuSparkles className="mr-2 text-blue-400" />
               Ready to Innovate
             </p>
-            <h1 className="text-5xl lg:text-6xl font-bold text-center md:text-left">
-              <span className="bg-gradient-to-r text-3xl md:text-6xl from-white via-blue-100 to-purple-200 bg-clip-text text-transparent">
+            <h1
+              data-aos="fade-up-right"
+              className="text-6xl -mt-7 lg:text-8xl font-extrabold text-center md:text-left text-shadow-[0_0_60px_aqua]/40"
+            >
+              <span className="bg-gradient-to-r text-4xl md:text-7xl from-white via-blue-100 to-purple-200 bg-clip-text text-transparent">
                 Frontend
               </span>
               <br />
@@ -66,21 +73,28 @@ const Asosiy = () => {
             </h1>
 
             <Typewriter
-              texts={["Yuqori Natijalar", "Yuqori aniqlikdagi dasturchilar"]}
+              texts={[
+                "Trained at IT Time Academy with solid fundamentals.",
+                "A passionate learner with 2 years of coding experience.",
+              ]}
             />
 
             <div className="flex gap-1 md:gap-3">
               {base.map((item) => (
                 <div
+                  data-aos="fade-right"
+                  data-aos-delay={item.delay}
                   key={item.id}
-                  className="bg-black/50 border-[1px] border-black/40 px-[10px] md:px-5 py-[3px] md:py-[5px] rounded-full text-white"
+                  className=""
                 >
-                  {item.text}
+                  <div className="bg-black/50 border-[1px] border-black/40 hover:bg-blue-800/5 duration-1000 px-[10px] md:px-5 py-[3px] md:py-[5px] rounded-full text-white">
+                    {item.text}
+                  </div>
                 </div>
               ))}
             </div>
 
-            <div className="flex gap-5">
+            <div data-aos="fade-up" data-aos-delay="400" className="flex gap-5">
               <a
                 href="#portfolio"
                 className="shadow-[0_0_25px_#935AF590] hover:shadow-[0_0_25px_#935AF5]  flex w-38 h-11 relative overflow-hidden justify-center rounded-xl bg-black/40 items-center gap-2 hover:gap-4 duration-1000 group font-bold text-white"
@@ -97,7 +111,7 @@ const Asosiy = () => {
                 className="  shadow-[0_0_25px_#935AF590] hover:shadow-[0_0_25px_#935AF5]  flex  w-38 h-11 relative overflow-hidden justify-center rounded-xl bg-black/40 items-center gap-2 hover:gap-4 duration-1000 group font-bold text-white"
               >
                 <div className="absolute left-0 top-0 h-full w-0 bg-blue-400/10 transition-all duration-500 group-hover:w-full group-hover:translate-x-0 translate-x-[-100%]"></div>{" "}
-                Projects
+                Contact
                 <MdOutlineMailOutline
                   size={19}
                   className="group-hover:rotate-10 duration-500"
@@ -105,12 +119,15 @@ const Asosiy = () => {
               </a>
             </div>
 
-            <div className="flex gap-9 mt-3">
+            <div
+              data-aos="fade-up"
+              data-aos-delay="700"
+              data-aos-offset="5"
+              className="flex gap-9 mt-3"
+            >
               {linklar.map((item) => (
                 <a key={item.id} href={item.link} className="">
-                  <div
-                    className="bg-[#1D163B] hover:bg-[#322c4b] rounded-xl border-[1px] border-white/20 p-[6px] shadow-[0_0_30px_#935AF590] hover:shadow-[0_0_30px_#935AF5] duration-500"
-                  >
+                  <div className="bg-[#1D163B] hover:bg-[#322c4b] rounded-xl border-[1px] border-white/20 p-[6px] shadow-[0_0_30px_#935AF590] hover:shadow-[0_0_30px_#935AF5] duration-1000">
                     <div className="text-white text-2xl">{item.icon}</div>
                   </div>
                 </a>
@@ -120,6 +137,8 @@ const Asosiy = () => {
 
           {/* O'ng qism (DotLottie) --------------------------------------------------------------------------*/}
           <div
+            data-aos="zoom-out"
+            data-aos-delay="200"
             className="relative w-full max-w-md lg:max-w-lg xl:max-w-xl flex justify-center items-center"
             onMouseEnter={() => setIsHovering(true)}
             onMouseLeave={() => setIsHovering(false)}
@@ -134,7 +153,7 @@ const Asosiy = () => {
             {/* DotLottie komponenti--------------------------------------------------------------------------------- */}
             <div
               className={`relative z-10 w-full transform transition-transform duration-500 ${
-                isHovering ? "scale-160 rotate-2" : "scale-150"
+                isHovering ? "scale-150 rotate-4" : "scale-140"
               }`}
             >
               <DotLottieReact

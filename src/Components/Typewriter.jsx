@@ -38,9 +38,9 @@ const Typewriter = ({ texts, speed = 50, pause = 1500 }) => {
   }, [subIndex, deleting, index, texts, speed, pause]);
 
   return (
-    <span className="text-blue-500 font-semibold text-lg">
+    <span className="text-blue-100 h-5 my-6 -mt-3 text-center md:text-left text-shadow-[0_0_28px_blue] font-semibold text-md lg:text-lg">
       {text}
-      <span className="animate-pulse">|</span>
+      <span className="animate-pulse text-2xl text-[#f3ff07] ">|</span>
     </span>
   );
 };

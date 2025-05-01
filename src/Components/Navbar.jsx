@@ -9,13 +9,13 @@ import { motion, AnimatePresence } from "framer-motion";
 const nav = [
   {
     id: 1,
-    link: "#asosiy",
-    text: "Asosiy",
+    link: "#home",
+    text: "Home",
   },
   {
     id: 2,
-    link: "#haqida",
-    text: "Haqida",
+    link: "#about",
+    text: "About",
   },
   {
     id: 3,
@@ -24,22 +24,22 @@ const nav = [
   },
   {
     id: 4,
-    link: "#aloqa",
-    text: "Aloqa",
+    link: "#contact",
+    text: "Contact",
   },
 ];
 
 const navMobile = [
   {
     id: 1,
-    link: "#asosiy",
-    text: "Asosiy",
+    link: "#home",
+    text: "Home",
     icon: <IoHome />,
   },
   {
     id: 2,
-    link: "#haqida",
-    text: "Haqida",
+    link: "#about",
+    text: "About",
     icon: <RiAccountCircleLine />,
   },
   {
@@ -50,15 +50,15 @@ const navMobile = [
   },
   {
     id: 4,
-    link: "#aloqa",
-    text: "aloqa",
+    link: "#contact",
+    text: "Contact",
     icon: <PiPlugsConnectedFill />,
   },
 ];
 
 function Navbar() {
   const [scrolled, setScrolled] = useState(false);
-  const [activeLink, setActiveLink] = useState("#asosiy");
+  const [activeLink, setActiveLink] = useState("#home");
   const [open, setOpen] = useState(false);
 
   const menu = () => {
@@ -92,7 +92,7 @@ function Navbar() {
   }, []);
 
   return (
-    <div className="fixed w-full mt-3 z-100">
+    <div id="home" className="fixed w-full mt-3 z-100">
       <div className="container">
         <div
           className={` transition duration-1000 py-5 px-5 md:px-10 z-50 rounded-full flex justify-between items-center w-full ${
@@ -103,7 +103,7 @@ function Navbar() {
         >
           <a
             href="/"
-            className=" text-3xl items-center gap-2 md:gap-3 hover:gap-4 duration-200 md:text-4xl font-bold flex text-transparent bg-gradient-to-r from-blue-500 to-purple-800 bg-clip-text"
+            className=" text-3xl items-center gap-2 md:gap-3 hover:gap-4 hover:text-shadow-[0_0_20px_blue]/30 duration-500 md:text-4xl font-bold flex text-transparent bg-gradient-to-r from-blue-500 to-purple-800 bg-clip-text"
           >
             Parpiboyev
             <FaCode className="text-blue-600" />
@@ -162,26 +162,26 @@ function Navbar() {
             className="w-[70%] mt-2 mx-auto flex justify-between bg-white/2 backdrop-blur-xs px-5 py-2 rounded-full"
           >
             {navMobile.map((item) => (
-              <a href={item.link} className="">
-                <div key={item.id} className="flex flex-col items-center">
+              <a key={item.id} href={item.link} className="">
+                <div className="flex flex-col items-center">
                   <div
+                  onClick={()=>setOpen(false)}
                     className={`text-2xl ${
                       activeLink === item.link ? "text-blue-500" : "text-white"
                     }`}
                   >
                     {item.icon}
                   </div>
-                  <a
-                    href={item.link}
+                  <span
                     className={`relative text-[14px] text-center font-bold transition-all duration-300 bg-gradient-to-r text-transparent from-blue-500 to-purple-500 bg-clip-text
-              ${
-                activeLink === item.link
-                  ? "after:content-[''] after:absolute after:left-1/2 after:-translate-x-1/2 after:bottom-[-2px] after:h-[2px] after:w-[90%] after:origin-center after:scale-x-100 after:bg-gradient-to-r after:from-blue-500 after:to-purple-800 after:transition-transform after:duration-500"
-                  : "text-white after:content-[''] after:absolute after:left-1/2 after:-translate-x-1/2 after:bottom-[-2px] after:h-[2px] after:w-[90%] after:origin-center after:scale-x-0 after:bg-gradient-to-r after:from-blue-500 after:to-purple-800 after:transition-transform after:duration-500"
-              }`}
+        ${
+          activeLink === item.link
+            ? "after:content-[''] after:absolute after:left-1/2 after:-translate-x-1/2 after:bottom-[-2px] after:h-[2px] after:w-[90%] after:origin-center after:scale-x-100 after:bg-gradient-to-r after:from-blue-500 after:to-purple-800 after:transition-transform after:duration-500"
+            : "text-white after:content-[''] after:absolute after:left-1/2 after:-translate-x-1/2 after:bottom-[-2px] after:h-[2px] after:w-[90%] after:origin-center after:scale-x-0 after:bg-gradient-to-r after:from-blue-500 after:to-purple-800 after:transition-transform after:duration-500"
+        }`}
                   >
                     {item.text}
-                  </a>
+                  </span>
                 </div>
               </a>
             ))}
