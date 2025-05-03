@@ -13,6 +13,7 @@ function App() {
   useEffect(() => {
     AOS.init({
       duration: 1000,
+      offset: 20,
     });
   }, []);
   return (
@@ -23,7 +24,7 @@ function App() {
         <Asosiy />
         <About />
         <Portfolio />
-        <Contact/>
+        <Contact />
         <Footer />
       </div>
     </div>

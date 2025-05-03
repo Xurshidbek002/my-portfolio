@@ -36,7 +36,7 @@ const buttons = [
 
 const projects = [
   {
-    title: "It Time academy",
+    title: "IT TIME Academy",
     aos: "fade-up-right",
     img: portfolio1,
     desc: "Multilingual website using React, TypeScript, Tailwind CSS, i18next, and Particles.js. Supports 4 languages and real-time form submission via Telegram Bot.",
@@ -177,19 +177,16 @@ function Portfolio() {
                     className="rounded-2xl overflow-hidden group bg-blue-950/10 backdrop-blur shadow-[3px_3px_35px_blue]/15"
                   >
                     <div className="overflow-hidden relative">
-                      <div className="text-3xl text-shadow-[0_0_10px_blue]/30 font-extrabold group-hover:scale-2500 duration-700 group-hover:opacity-0 text-transparent bg-clip-text bg-gradient-to-r from-[#2e2e41] via-[#311a46] to-[#16482b] absolute z-5 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-                        HOVER
+                      <div className="text-3xl whitespace-nowrap text-shadow-[0_0_10px_white]/50 font-extrabold group-hover:scale-2500 duration-700 group-hover:opacity-0 text-white absolute z-5 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+                        {item.title}
                       </div>
                       <img
                         src={item.img}
                         alt={item.title}
-                        className="blur-[3px] object-cover w-full h-50 scale-110 group-hover:scale-100 duration-700 group-hover:blur-[0]"
+                        className="blur-[4px] brightness-20 group-hover:brightness-100 object-cover w-full h-50 scale-150 group-hover:scale-100 duration-700 group-hover:blur-[0]"
                       />
                     </div>
                     <div className="p-3 ">
-                      <h3 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#6366f1] to-[#55f77b]">
-                        {item.title}
-                      </h3>
                       <p className="text-sm text-white/60">{item.desc}</p>
                       <div className="flex justify-between mt-3 space-x-4">
                         {/* Live Demo Link */}
