@@ -292,7 +292,7 @@ function Portfolio() {
                       <img
                         src={item.img}
                         alt="tech skill"
-                        className="w-full h-full"
+                        className="w-full h-full object-contain"
                       />
                     </div>
                   );
