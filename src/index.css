@@ -31,3 +31,25 @@ body {
     opacity: 0;
   }
 }
+
+.ripple-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.105);
+  transform: scale(0);
+  animation: ripple-animation 0.7s linear;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes ripple-animation {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}

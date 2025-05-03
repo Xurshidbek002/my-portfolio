@@ -143,7 +143,7 @@ function About() {
                   <div
                     data-aos="fade-up-left"
                     data-aos-duration="2000"
-                    data-aos-delay="200"
+                    data-aos-delay="700"
                     data-aos-offset="30"
                     className="font-extrabold"
                   >

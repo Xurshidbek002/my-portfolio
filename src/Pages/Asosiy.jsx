@@ -107,7 +107,7 @@ const Asosiy = () => {
                 />
               </a>
               <a
-                href="#portfolio"
+                href="#contact"
                 className="  shadow-[0_0_25px_#935AF590] hover:shadow-[0_0_25px_#935AF5]  flex  w-38 h-11 relative overflow-hidden justify-center rounded-xl bg-black/40 items-center gap-2 hover:gap-4 duration-1000 group font-bold text-white"
               >
                 <div className="absolute left-0 top-0 h-full w-0 bg-blue-400/10 transition-all duration-500 group-hover:w-full group-hover:translate-x-0 translate-x-[-100%]"></div>{" "}
