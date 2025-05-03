@@ -287,12 +287,13 @@ function Portfolio() {
                       data-aos={_aos}
                       data-aos-offset="1"
                       data-aos-delay={_delay}
-                      className="bg-blue-950/50 flex h-22 md:h-40 lg:h-47 content-center p-3 lg:p-10 rounded-2xl"
+                      className="bg-blue-950/50 relative group flex h-22 md:h-40 lg:h-47 content-center p-3 lg:p-10 rounded-2xl"
                     >
+                      <div className="absolute top-1/2 left-1/2 -translate-1/2 w-20 h-20 bg-blue-700/0 group-hover:bg-blue-700/100 duration-600 blur-2xl"></div>
                       <img
                         src={item.img}
                         alt="tech skill"
-                        className="w-full h-full object-contain"
+                        className="w-full z-1 h-full object-contain"
                       />
                     </div>
                   );
