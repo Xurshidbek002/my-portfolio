@@ -5,7 +5,7 @@ import { PiSparkleFill } from "react-icons/pi";
 import { LiaCertificateSolid } from "react-icons/lia";
 import { FaArrowDown } from "react-icons/fa";
 
-import rasm from "../assets/imgage.jpg";
+import rasm from "../assets/logo.jpg";
 import { IoCode } from "react-icons/io5";
 
 const base = [
@@ -110,8 +110,8 @@ function About() {
                   <img
                     src={rasm}
                     alt="Profile"
-                    className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110 group-hover:rotate-2"
                     loading="lazy"
+                    className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110 group-hover:rotate-2 will-change-transform backface-hidden"
                   />
                   <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-all duration-700 z-20">
                     <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/20 to-transparent transform -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />

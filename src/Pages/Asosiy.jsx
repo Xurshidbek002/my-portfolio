@@ -55,7 +55,7 @@ const Asosiy = () => {
         <div className="flex flex-col md:flex-row md:justify-between items-center gap-20">
           {/* Chap qism--------------------------------------------------------------------------------- */}
           <div className="md:pl-10 z-50 flex flex-col items-center md:items-start text-left gap-5">
-            <p className="flex mt-5  items-center text-[10px] md:text-[15px] text-blue-300 hover:bg-blue-500/20 duration-700 hover:shadow-[0_0_45px_blue]/30 hover:text-white font-medium bg-black/5 backdrop-blur-xl px-4 py-2 rounded-full border border-white/10">
+            <p className=" mt-5 hidden md:flex  items-center text-[10px] md:text-[15px] text-blue-300 hover:bg-blue-500/20 duration-700 hover:shadow-[0_0_45px_blue]/30 hover:text-white font-medium bg-black/5 backdrop-blur-xl px-4 py-2 rounded-full border border-white/10">
               <LuSparkles className="mr-2 text-blue-400" />
               Ready to Innovate
             </p>
@@ -87,7 +87,7 @@ const Asosiy = () => {
                   key={item.id}
                   className=""
                 >
-                  <div className="bg-black/50 border-[1px] border-black/40 hover:bg-blue-800/5 duration-1000 px-[10px] md:px-5 py-[3px] md:py-[5px] rounded-full text-white">
+                  <div className="bg-black/50 border-[1px] border-black/40 hover:bg-white/3 duration-200 px-[10px] md:px-5 py-[3px] md:py-[5px] rounded-full text-white">
                     {item.text}
                   </div>
                 </div>

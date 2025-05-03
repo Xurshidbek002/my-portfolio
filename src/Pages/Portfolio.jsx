@@ -147,12 +147,12 @@ function Portfolio() {
             expertise. Each section represents a milestone in my continuous
             learning path.
           </p>
-          <div className="grid grid-cols-3 bg-blue-900/20 backdrop-blur-2xl p-5 rounded-xl gap-4 md:gap-7 mt-5">
+          <div className="grid grid-cols-3 bg-blue-900/20 backdrop-blur-2xl p-3 rounded-xl gap-4 md:gap-7 mt-5">
             {buttons.map((item, index) => (
               <button
                 onClick={(e) => handleClick(e, item.name)}
                 key={index}
-                className={`group ripple-container flex items-center justify-center rounded-xl py-5 transition-all duration-1000 hover:-translate-y-1 ${
+                className={`group ripple-container flex items-center justify-center rounded-xl py-3 md:py-5 transition-all duration-1000 hover:-translate-y-1 ${
                   select === item.name
                     ? "bg-[#194c9d]/80 backdrop-blur-2xl"
                     : "bg-[#163363]/50 hover:bg-[#194c9d]/45 hover:-translate-y-1"
@@ -162,7 +162,7 @@ function Portfolio() {
                   <div className="text-4xl group-hover:rotate-10 duration-500">
                     {item.icon}
                   </div>
-                  <div className="font-extrabold">{item.name}</div>
+                  <div className="font-extrabold group-hover:scale-105 duration-500">{item.name}</div>
                 </div>
               </button>
             ))}
@@ -183,7 +183,7 @@ function Portfolio() {
                       <img
                         src={item.img}
                         alt={item.title}
-                        className="blur-[4px] brightness-20 group-hover:brightness-100 object-cover w-full h-50 scale-150 group-hover:scale-100 duration-700 group-hover:blur-[0]"
+                        className="blur-[4px] brightness-60 group-hover:brightness-100 object-cover w-full h-50 scale-150 group-hover:scale-100 duration-700 group-hover:blur-[0]"
                       />
                     </div>
                     <div className="p-3 ">
@@ -200,10 +200,10 @@ function Portfolio() {
                           <span className="inline-block transition-transform duration-300 group-hover:-translate-x-[200%]">
                             Live Demo
                           </span>
-                          <span className="absolute left-3 top-1/2 -translate-y-1/2 translate-x-[200%] transition-transform duration-300 group-hover:translate-x-0">
+                          <span className="absolute left-3 top-1/2 -translate-y-1/2 translate-x-[200%] text-cyan-400 transition-transform duration-300 group-hover:translate-x-0">
                             Live Demo
                           </span>
-                          <HiExternalLink className="w-4 h-4 transition-transform duration-300 group-hover:rotate-45 group-hover:translate-x-1" />
+                          <HiExternalLink className="w-4 h-4 group-hover:text-cyan-400 transition-transform duration-300 group-hover:rotate-45 group-hover:translate-x-1" />
                           <span className="absolute bottom-0 left-0 w-full h-0.5 bg-cyan-400 origin-[100%_50%] scale-x-0 transition-transform duration-300 group-hover:origin-[0%_50%] group-hover:scale-x-100" />
                         </a>
 
@@ -218,10 +218,10 @@ function Portfolio() {
                           <span className="inline-block transition-transform duration-300 group-hover:-translate-x-[200%]">
                             Github
                           </span>
-                          <span className="absolute left-3 top-1/2 -translate-y-1/2 translate-x-[200%] transition-transform duration-300 group-hover:translate-x-0">
+                          <span className="absolute left-3 top-1/2 text-cyan-300 -translate-y-1/2 translate-x-[200%] transition-transform duration-300 group-hover:translate-x-0">
                             Github
                           </span>
-                          <FiGithub className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+                          <FiGithub className="w-4 h-4 transition-transform group-hover:text-cyan-300 duration-300 group-hover:translate-x-1" />
                           <span className="absolute bottom-0 left-0 w-full h-0.5 bg-blue-300 origin-[100%_50%] scale-x-0 transition-transform duration-300 group-hover:origin-[0%_50%] group-hover:scale-x-100" />
                         </a>
                       </div>
@@ -289,7 +289,7 @@ function Portfolio() {
                       data-aos-delay={_delay}
                       className="bg-blue-950/50 relative group flex h-22 md:h-40 lg:h-47 content-center p-3 lg:p-10 rounded-2xl"
                     >
-                      <div className="absolute top-1/2 left-1/2 -translate-1/2 w-20 h-20 bg-blue-700/0 group-hover:bg-blue-700/100 duration-600 blur-2xl"></div>
+                      <div className="absolute top-1/2 left-1/2 -translate-1/2 w-10 h-10 md:w-20 md:h-20 bg-blue-700/0 group-hover:bg-blue-700/100 duration-600 blur-xl md:blur-2xl"></div>
                       <img
                         src={item.img}
                         alt="tech skill"

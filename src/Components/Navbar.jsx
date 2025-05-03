@@ -105,8 +105,7 @@ function Navbar() {
             href="/"
             className=" text-3xl items-center gap-2 md:gap-3 hover:gap-4 hover:text-shadow-[0_0_20px_blue]/30 duration-500 md:text-4xl font-bold flex text-transparent bg-gradient-to-r from-blue-500 to-purple-800 bg-clip-text"
           >
-            Parpiboyev
-            <FaCode className="text-blue-600" />
+            Xurshid.Dev
           </a>
           <nav className="md:flex gap-5 hidden">
             {nav.map((item) => (
