@@ -54,16 +54,16 @@ const Asosiy = () => {
       <div className="container  w-full">
         <div className="flex flex-col md:flex-row md:justify-between items-center gap-20">
           {/* Chap qism--------------------------------------------------------------------------------- */}
-          <div className="md:pl-10 z-50 flex flex-col items-center md:items-start text-left gap-5">
-            <p className=" mt-5 hidden md:flex  items-center text-[10px] md:text-[15px] text-blue-300 hover:bg-blue-500/20 duration-700 hover:shadow-[0_0_45px_blue]/30 hover:text-white font-medium bg-black/5 backdrop-blur-xl px-4 py-2 rounded-full border border-white/10">
+          <div className="md:pl-10 z-50 flex flex-col items-center md:items-start text-left">
+            <p className=" z-10 mt-5 hidden md:flex  items-center text-[10px] md:text-[15px] text-blue-300 hover:bg-blue-500/20 duration-700 hover:shadow-[0_0_45px_blue]/30 hover:text-white font-medium bg-black/5 backdrop-blur-xl px-4 py-2 rounded-full border border-white/10">
               <LuSparkles className="mr-2 text-blue-400" />
               Ready to Innovate
             </p>
             <h1
               data-aos="fade-up-right"
-              className="text-6xl -mt-7 lg:text-8xl font-extrabold text-center md:text-left text-shadow-[0_0_60px_aqua]/40"
+              className="text-6xl mb-2 pt-4 lg:text-7xl font-extrabold text-center md:text-left text-shadow-[0_0_60px_aqua]/40"
             >
-              <span className="bg-gradient-to-r text-4xl md:text-7xl from-white via-blue-100 to-purple-200 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r text-5xl md:text-7xl from-white via-blue-100 to-purple-200 bg-clip-text text-transparent">
                 Frontend
               </span>
               <br />
@@ -79,7 +79,7 @@ const Asosiy = () => {
               ]}
             />
 
-            <div className="flex gap-1 md:gap-3">
+            <div className="flex gap-1 md:gap-3 ">
               {base.map((item) => (
                 <div
                   data-aos="fade-right"
@@ -94,7 +94,11 @@ const Asosiy = () => {
               ))}
             </div>
 
-            <div data-aos="fade-up" data-aos-delay="400" className="flex gap-5">
+            <div
+              data-aos="fade-up"
+              data-aos-delay="400"
+              className="flex gap-5 my-8"
+            >
               <a
                 href="#portfolio"
                 className="shadow-[0_0_25px_#935AF590] hover:shadow-[0_0_25px_#935AF5]  flex w-38 h-11 relative overflow-hidden justify-center rounded-xl bg-black/40 items-center gap-2 hover:gap-4 duration-1000 group font-bold text-white"
@@ -123,7 +127,7 @@ const Asosiy = () => {
               data-aos="fade-up"
               data-aos-delay="700"
               data-aos-offset="5"
-              className="flex gap-9 mt-3"
+              className="flex gap-9"
             >
               {linklar.map((item) => (
                 <a key={item.id} href={item.link} className="">

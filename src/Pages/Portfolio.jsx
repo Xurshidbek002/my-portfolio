@@ -128,7 +128,7 @@ function Portfolio() {
   };
 
   return (
-    <div id="portfolio">
+    <div id="portfolio" className="mb-10">
       <div className="">
         <div className="container">
           <h2

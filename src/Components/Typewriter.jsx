@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const Typewriter = ({ texts, speed = 50, pause = 1500 }) => {
+const Typewriter = ({ texts, speed = 80, pause = 1500 }) => {
   const [text, setText] = useState("");
   const [index, setIndex] = useState(0);
   const [subIndex, setSubIndex] = useState(0);
@@ -38,10 +38,12 @@ const Typewriter = ({ texts, speed = 50, pause = 1500 }) => {
   }, [subIndex, deleting, index, texts, speed, pause]);
 
   return (
-    <span className="text-blue-100 h-5 my-6 -mt-3 text-center md:text-left text-shadow-[0_0_28px_blue] font-semibold text-md lg:text-lg">
-      {text}
-      <span className="animate-pulse text-2xl text-[#f3ff07] ">|</span>
-    </span>
+    <div className="text-center h-13 flex items-center">
+      <span className="text-blue-100 md:text-left text-shadow-[0_0_28px_blue] font-semibold text-md leading-0.5 lg:text-lg">
+        {text}
+        <span className="animate-pulse text-2xl text-[#f3ff07] ">|</span>
+      </span>
+    </div>
   );
 };
 

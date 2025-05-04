@@ -1,9 +1,10 @@
 import React from "react";
 import { FiGlobe } from "react-icons/fi";
-import { FaCode } from "react-icons/fa";
+import { FaCode, FaDownload } from "react-icons/fa";
 import { PiSparkleFill } from "react-icons/pi";
 import { LiaCertificateSolid } from "react-icons/lia";
 import { FaArrowDown } from "react-icons/fa";
+import resume from "../../public/XurshidbekResume.pdf";
 
 import rasm from "../assets/logo.jpg";
 import { IoCode } from "react-icons/io5";
@@ -26,7 +27,7 @@ const base = [
     href: "#portfolio",
   },
   {
-    num: "2",
+    num: "1+",
     title: "Years of exprience",
     text: "Continuous learning journey",
     icon: <FiGlobe />,
@@ -82,12 +83,13 @@ function About() {
               data-aos="fade-up"
               data-aos-delay="100"
               data-aos-offset="10"
-              href="#portfolio"
+              href={resume}
+              download="XurshidbekResume.pdf"
               className="flex group relative items-center px-4 py-2 border-3 overflow-hidden border-purple-500/50 rounded-md gap-2 font-medium hover:text-purple-500 text-white"
             >
               <div className="absolute w-full top-0 left-0 duration-200 translate-0 group-hover:-translate-y-full h-full bg-purple-500/50"></div>
-              <FaCode />
-              View Project
+              Resume
+              <FaDownload />
             </a>
           </div>
           {/* img tomon */}
