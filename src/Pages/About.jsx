@@ -5,7 +5,6 @@ import { PiSparkleFill } from "react-icons/pi";
 import { LiaCertificateSolid } from "react-icons/lia";
 import { FaArrowDown } from "react-icons/fa";
 import resume from "../../public/XurshidbekResume.pdf";
-
 import rasm from "../assets/logo.jpg";
 import { IoCode } from "react-icons/io5";
 

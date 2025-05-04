@@ -1,7 +1,13 @@
+import { div } from "motion/react-client";
 import React, { useEffect, useState } from "react";
-import { FaExternalLinkAlt, FaTelegramPlane, FaTrash } from "react-icons/fa";
+import {
+  FaExternalLinkAlt,
+  FaTelegramPlane,
+  FaTrash,
+} from "react-icons/fa";
 import { FiGithub, FiLinkedin } from "react-icons/fi";
 import { GrInstagram } from "react-icons/gr";
+import { IoImageOutline } from "react-icons/io5";
 import { RiSendPlaneFill } from "react-icons/ri";
 
 const links = [
@@ -366,7 +372,13 @@ function Contact() {
                     htmlFor="comment-image"
                     className="block bg-[#33407641] w-full outline-none rounded-xl border-1 border-transparent hover:border-purple-500 hover:shadow-[0_0_15px_blue]/30 py-3 px-4 text-white text-center cursor-pointer duration-300"
                   >
-                    {commentData.imagePreview ? "Change Image" : "Add Image"}
+                    {commentData.imagePreview ? (
+                      "Change Image"
+                    ) : (
+                      <div className="flex justify-center items-center gap-2">
+                        Add img <IoImageOutline />
+                      </div>
+                    )}
                   </label>
                 </div>
                 {commentData.imagePreview && (
