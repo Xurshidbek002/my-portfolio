@@ -164,7 +164,7 @@ function Navbar() {
               <a key={item.id} href={item.link} className="">
                 <div className="flex flex-col items-center">
                   <div
-                  onClick={()=>setOpen(false)}
+                    onClick={() => setOpen(false)}
                     className={`text-2xl ${
                       activeLink === item.link ? "text-blue-500" : "text-white"
                     }`}

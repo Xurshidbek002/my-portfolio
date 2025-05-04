@@ -54,11 +54,55 @@ body {
   }
 }
 
-
 .no-scrollbar {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
 .no-scrollbar::-webkit-scrollbar {
   display: none;
+}
+@keyframes shimmer-tr {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes shimmer-bl {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(-100%);
+  }
+}
+
+/* Har bir animatsiyali qatlam uchun class — infinite 3s */
+.shimmer-tr {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top right,
+    transparent,
+    rgba(0, 21, 255, 0.1),
+    transparent
+  );
+  animation: shimmer-tr 3s linear infinite;
+  z-index: 1;
+}
+
+.shimmer-bl {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom left,
+    transparent,
+    rgba(254, 244, 38, 0.05),
+    transparent
+  );
+  animation: shimmer-bl 3s linear infinite;
+  animation-delay: 1s;
+  z-index: 1;
 }

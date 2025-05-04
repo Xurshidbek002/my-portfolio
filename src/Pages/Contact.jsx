@@ -283,7 +283,7 @@ function Contact() {
                     loading ? "bg-amber-300" : "bg-blue-700"
                   }`}
                 >
-                  <span class="ripple"></span>
+                  <span className="ripple"></span>
                   {btnName}
                 </button>
               </div>

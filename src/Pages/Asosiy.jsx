@@ -19,7 +19,7 @@ const base = [
   },
   {
     id: 3,
-    text: "NodeJs",
+    text: "HTML5",
     delay: "300",
   },
   {
@@ -38,21 +38,21 @@ const linklar = [
   {
     id: 2,
     icon: <FiLinkedin />,
-    link: "https://www.linkedin.com/in/xurshidbek-parpiboyev-581678360?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+    link: "https://www.linkedin.com/in/xurshidbekdev",
   },
   {
     id: 3,
     icon: <FaInstagram />,
-    link: "https://www.instagram.com/egoistfunny?igsh=dzV1d2tpYW0ya2Zu",
+    link: "https://www.instagram.com/egoistfunny",
   },
 ];
 const Asosiy = () => {
   const [isHovering, setIsHovering] = useState(false);
 
   return (
-    <div id="asosiy" className="flex items-center justify-center h-screen">
+    <div id="asosiy" className="flex items-center justify-center pt-25 pb-20">
       <div className="container  w-full">
-        <div className="flex flex-col md:flex-row md:justify-between items-center gap-20">
+        <div className="flex flex-col md:flex-row md:justify-between items-center gap-10">
           {/* Chap qism--------------------------------------------------------------------------------- */}
           <div className="md:pl-10 z-50 flex flex-col items-center md:items-start text-left">
             <p className=" z-10 mt-5 hidden md:flex  items-center text-[10px] md:text-[15px] text-blue-300 hover:bg-blue-500/20 duration-700 hover:shadow-[0_0_45px_blue]/30 hover:text-white font-medium bg-black/5 backdrop-blur-xl px-4 py-2 rounded-full border border-white/10">
