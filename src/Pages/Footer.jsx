@@ -31,32 +31,37 @@ const Footer = () => {
             <a
               href={resume}
               download="XurshidbekResume.pdf"
-              className="flex gap-2 items-center hover:text-blue-600 group relative px-1 duration-300 rounded-md border border-transparent hover:border-blue-500 active:animate-ping"
+              className="flex  gap-2 items-center bg-black/20 text-blue-500 hover:text-white group relative px-2 overflow-hidden duration-300 rounded-md border border-blue-400/30 hover:border-blue-500 ml-5 sm:m-0"
             >
-              <div className="absolute group-hover:bg-white/10 h-full w-0 duration-300 group-hover:w-full translate-x-1/2 right-1/2"></div>
+              <div className="absolute group-hover:bg-white/15 h-full w-0 duration-200  group-hover:w-full translate-x-1/2 right-1/2"></div>
               Resume <FaDownload className="animate-bounce" />
             </a>
           </div>
 
           {/* Navigatsiya linklar */}
-          <div className="flex gap-3 md:gap-6 font-bold">
-            <a href="/" className="hover:text-gray-400">
-              Home
+          <div className="">
+            <a href="/" className="sm:hidden block font-extrabold">
+              ZAFAROV.UZ
             </a>
-            <a href="#about" className="hover:text-gray-400">
-              About
-            </a>
-            <a href="#portfolio" className="hover:text-gray-400">
-              Portfolio
-            </a>
-            <a href="#contact" className="hover:text-gray-400">
-              Contact
-            </a>
+            <div className="hidden sm:flex gap-3 md:gap-6 font-bold">
+              <a href="/" className="hover:text-gray-400">
+                Home
+              </a>
+              <a href="#about" className="hover:text-gray-400">
+                About
+              </a>
+              <a href="#portfolio" className="hover:text-gray-400">
+                Portfolio
+              </a>
+              <a href="#contact" className="hover:text-gray-400">
+                Contact
+              </a>
+            </div>
           </div>
         </footer>
       </div>
       <p className="footer-text text-center mt-3 text-white/50">
-        © 2025 Xurshidbek. All rights reserved.
+        © 2025 zafarov.uz, All rights reserved.
       </p>
     </div>
   );

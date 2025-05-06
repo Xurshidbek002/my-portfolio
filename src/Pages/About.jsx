@@ -1,6 +1,6 @@
 import React from "react";
 import { FiGlobe } from "react-icons/fi";
-import { FaCode, FaDownload } from "react-icons/fa";
+import { FaDownload } from "react-icons/fa";
 import { PiSparkleFill } from "react-icons/pi";
 import { LiaCertificateSolid } from "react-icons/lia";
 import { FaArrowDown } from "react-icons/fa";
@@ -78,18 +78,26 @@ function About() {
               Networking. I focus on building clean, responsive, and
               user-friendly websites that bring ideas to life.
             </p>
-            <a
+            <div
+              className=""
               data-aos="fade-up"
               data-aos-delay="100"
               data-aos-offset="10"
-              href={resume}
-              download="XurshidbekResume.pdf"
-              className="flex group relative items-center px-4 py-2 border-3 overflow-hidden border-purple-500/50 rounded-md gap-2 font-medium hover:text-purple-500 text-white"
             >
-              <div className="absolute w-full top-0 left-0 duration-200 translate-0 group-hover:-translate-y-full h-full bg-purple-500/50"></div>
-              Resume
-              <FaDownload />
-            </a>
+              <a
+                href={resume}
+                download="XurshidbekResume.pdf"
+                className="flex group relative duration-700 px-4 py-2 overflow-hidden rounded-md font-medium text-white"
+              >
+                <span className="z-1 flex items-center gap-2">
+                  Resume
+                  <FaDownload />
+                </span>
+
+                <div className="absolute w-full top-0 left-0 duration-700 scale-100 rounded-md hover:opacity-0 group-hover:-scale-0 h-full bg-purple-500/50" />
+                <div className="absolute inset-0 rounded-md border-3 border-white scale-0 group-hover:scale-100 transition-transform duration-500 animate-pulse-slow" />
+              </a>
+            </div>
           </div>
           {/* img tomon */}
           <div className="w-auto h-auto">

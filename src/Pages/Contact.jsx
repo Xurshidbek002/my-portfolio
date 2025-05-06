@@ -301,6 +301,7 @@ function Contact() {
               data-aos="zoom-in-down"
               className="mt-5 bg-[#33407641] rounded-2xl p-5 flex flex-col gap-3"
             >
+              <h2 className="text-2xl font-bold text-white">Social Links</h2>
               {links.map((item, index) => (
                 <div
                   key={index}
@@ -329,7 +330,7 @@ function Contact() {
 
           {/* Right side (comments section) */}
           <div className="bg-[#33407641] rounded-2xl p-5">
-            <h3 className="text-xl font-bold mb-4 text-white">
+            <h3 className="text-xl font-bold mb-5 text-white">
               Leave a Comment
             </h3>
             <form
@@ -355,6 +356,7 @@ function Contact() {
                   value={commentData.comment}
                   onChange={handleCommentChange}
                   placeholder="Your Comment"
+                  rows={3}
                   required
                   className="bg-[#33407641] w-full outline-none rounded-xl border-1 border-transparent focus:scale-102 duration-500 focus:border-purple-500 focus:shadow-[0_0_15px_purple]/30 py-3 px-4 text-white"
                 ></textarea>
@@ -404,7 +406,7 @@ function Contact() {
 
             <div
               data-aos="zoom-in-down"
-              className="comments-section max-h-[380px] overflow-y-auto no-scrollbar"
+              className="comments-section max-h-[400px] overflow-y-auto no-scrollbar bg-[#33407641] p-5 h-auto rounded-2xl"
             >
               <h3 className="text-xl rounded-md font-bold mb-4 text-white">
                 Comments ({comments.length})

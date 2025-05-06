@@ -5,7 +5,16 @@ import { MdManageAccounts } from "react-icons/md";
 import { PiPlugsConnectedFill } from "react-icons/pi";
 import { RiAccountCircleLine } from "react-icons/ri";
 import { motion, AnimatePresence } from "framer-motion";
-
+import uz from "../assets/uz.png";
+import ru from "../assets/ru.png";
+import en from "../assets/eng.png";
+import { useTranslation } from "react-i18next";
+import i18n from "../i18n";
+const languages = [
+  { code: "uz", img: uz },
+  { code: "ru", img: ru },
+  { code: "eng", img: en },
+];
 const nav = [
   {
     id: 1,
@@ -91,6 +100,31 @@ function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const { t, i18n } = useTranslation();
+  const [currentIndex, setCurrentIndex] = useState(0);
+  useEffect(() => {
+    const savedLang = localStorage.getItem("lang");
+    if (savedLang) {
+      const index = languages.findIndex((l) => l.code === savedLang);
+      if (index !== -1) {
+        setCurrentIndex(index);
+        i18n.changeLanguage(savedLang);
+      }
+    }
+  }, []);
+  const rotateLanguage = () => {
+    const nextIndex = (currentIndex + 1) % languages.length;
+    setCurrentIndex(nextIndex);
+    i18n.changeLanguage(languages[nextIndex].code);
+    localStorage.setItem("lang", languages[nextIndex].code);
+  };
+  const getLangOrder = () => {
+    const prev = (currentIndex + languages.length - 1) % languages.length;
+    const next = (currentIndex + 1) % languages.length;
+    return [languages[prev], languages[currentIndex], languages[next]];
+  };
+  const orderedLangs = getLangOrder();
+
   return (
     <div id="home" className="fixed w-full mt-3 z-100">
       <div className="container">
@@ -101,12 +135,28 @@ function Navbar() {
               : "bg-transparent"
           }`}
         >
-          <a
-            href="/"
-            className=" text-3xl items-center gap-2 md:gap-3 hover:gap-4 hover:text-shadow-[0_0_20px_blue]/30 duration-500 md:text-4xl font-bold flex text-transparent bg-gradient-to-r from-blue-500 to-purple-800 bg-clip-text"
-          >
-            Xurshid.Dev
-          </a>
+          <div className="flex items-center gap-10">
+            <a
+              href="/"
+              className=" text-3xl items-center gap-2 md:gap-3 hover:gap-4 hover:text-shadow-[0_0_20px_blue]/30 duration-500 md:text-4xl font-bold flex text-transparent bg-gradient-to-r from-blue-500 to-purple-800 bg-clip-text"
+            >
+              ZAFAROV.UZ
+            </a>
+            <div
+              className="flex items-center h-10 w-15 justify-center py-4 cursor-pointer"
+              onClick={rotateLanguage}
+            >
+              {orderedLangs.map((lang, index) => (
+                <img
+                  key={lang.code}
+                  src={lang.img}
+                  alt={lang.code}
+                  className={`transition-all duration-500 object-contain
+            ${index === 1 ? "w-7 h-7 z-10 " : "w-3 h-3 opacity-50"}`}
+                />
+              ))}
+            </div>
+          </div>
           <nav className="md:flex gap-5 hidden">
             {nav.map((item) => (
               <a

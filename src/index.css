@@ -11,8 +11,11 @@ html,
 body {
   overflow-x: hidden;
   background: #030014;
+
   scroll-behavior: smooth !important;
   scrollbar-width: 1px;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 .container {
@@ -105,4 +108,7 @@ body {
   animation: shimmer-bl 3s linear infinite;
   animation-delay: 1s;
   z-index: 1;
+}
+textarea {
+  resize: none;
 }
