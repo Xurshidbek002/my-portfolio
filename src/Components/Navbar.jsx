@@ -19,22 +19,22 @@ const nav = [
   {
     id: 1,
     link: "#home",
-    text: "Home",
+    text: "navbar.home",
   },
   {
     id: 2,
     link: "#about",
-    text: "About",
+    text: "navbar.about",
   },
   {
     id: 3,
     link: "#portfolio",
-    text: "Portfolio",
+    text: "navbar.portfolio",
   },
   {
     id: 4,
     link: "#contact",
-    text: "Contact",
+    text: "navbar.contact",
   },
 ];
 
@@ -42,25 +42,25 @@ const navMobile = [
   {
     id: 1,
     link: "#home",
-    text: "Home",
+    text: "navbar.home",
     icon: <IoHome />,
   },
   {
     id: 2,
     link: "#about",
-    text: "About",
+    text: "navbar.about",
     icon: <RiAccountCircleLine />,
   },
   {
     id: 3,
     link: "#portfolio",
-    text: "Portfolio",
+    text: "navbar.portfolio",
     icon: <MdManageAccounts />,
   },
   {
     id: 4,
     link: "#contact",
-    text: "Contact",
+    text: "navbar.contact",
     icon: <PiPlugsConnectedFill />,
   },
 ];
@@ -135,7 +135,7 @@ function Navbar() {
               : "bg-transparent"
           }`}
         >
-          <div className="flex items-center gap-10">
+          <div className="flex items-center gap-6 md:gap-10">
             <a
               href="/"
               className=" text-3xl items-center gap-2 md:gap-3 hover:gap-4 hover:text-shadow-[0_0_20px_blue]/30 duration-500 md:text-4xl font-bold flex text-transparent bg-gradient-to-r from-blue-500 to-purple-800 bg-clip-text"
@@ -173,7 +173,7 @@ function Navbar() {
               hover:after:w-full after:transition-all after:duration-300
             `}
               >
-                {item.text}
+                {t(item.text)}
               </a>
             ))}
           </nav>

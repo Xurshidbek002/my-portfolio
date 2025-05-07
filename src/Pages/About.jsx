@@ -7,28 +7,29 @@ import { FaArrowDown } from "react-icons/fa";
 import resume from "../../public/XurshidbekResume.pdf";
 import rasm from "../assets/logo.jpg";
 import { IoCode } from "react-icons/io5";
+import { useTranslation } from "react-i18next";
 
 const base = [
   {
     num: "5",
-    title: "Total Projects",
-    text: "Inovative web soultions",
+    title: "about.1.title",
+    text: "about.1.text",
     icon: <IoCode />,
     aos: "fade-right",
     href: "#portfolio",
   },
   {
     num: "1",
-    title: "Sertificates",
-    text: "Profissional sliklls validated",
+    title: "about.2.title",
+    text: "about.2.text",
     icon: <LiaCertificateSolid />,
     aos: "fade-up",
     href: "#portfolio",
   },
   {
     num: "1+",
-    title: "Years of exprience",
-    text: "Continuous learning journey",
+    title: "about.3.title",
+    text: "about.3.text",
     icon: <FiGlobe />,
     aos: "fade-left",
     href: "#portfolio",
@@ -36,6 +37,7 @@ const base = [
 ];
 
 function About() {
+  const { t } = useTranslation();
   return (
     <div id="about" className="pb-20">
       <div className="container">
@@ -45,7 +47,7 @@ function About() {
             data-aos-offset="20"
             className="text-center text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#6366f1] to-[#a855f7]"
           >
-            About Me
+            {t("about.title")}
           </h1>
           <p
             data-aos="zoom-in-up"
@@ -53,7 +55,7 @@ function About() {
             className="flex items-center gap-2 text-sm md:text-md md:text-xl text-white/80"
           >
             <PiSparkleFill className="text-purple-400" />
-            Transforming ideas into digital experiences
+            {t("about.text")}
             <PiSparkleFill className="text-purple-400" />
           </p>
         </div>
@@ -66,17 +68,15 @@ function About() {
               className="text-3xl md:text-5xl font-bold text-white"
             >
               <div className="text-transparent bg-clip-text bg-gradient-to-r from-[#9210b3] to-[#6366f1] ">
-                Hello, I'm
+                {t("about.stitle")}
               </div>
-              <div className="">Parpiboyev Xurshidbek</div>
+              <div className="">{t("about.name")}</div>
             </h1>
             <p
               data-aos="fade-up"
               className="max-w-md text-sm md:text-md text-white/70"
             >
-              I'm a Front-End developer with a background in Computer
-              Networking. I focus on building clean, responsive, and
-              user-friendly websites that bring ideas to life.
+              {t("about.stext")}
             </p>
             <div
               className=""
@@ -90,7 +90,7 @@ function About() {
                 className="flex group relative duration-700 px-4 py-2 overflow-hidden rounded-md font-medium text-white"
               >
                 <span className="z-1 flex items-center gap-2">
-                  Resume
+                  {t("about.resume")}
                   <FaDownload />
                 </span>
 
@@ -166,7 +166,7 @@ function About() {
                     data-aos-offset="20"
                     className="text-xl font-bold uppercase"
                   >
-                    {item.title}
+                    {t(item.title)}
                   </h4>
                   <div
                     data-aos="fade-up"
@@ -174,7 +174,7 @@ function About() {
                     data-aos-offset="20"
                     className="flex justify-between"
                   >
-                    <p className="text-white/70">{item.text}</p>
+                    <p className="text-white/70 text-sm">{t(item.text)}</p>
                     <FaArrowDown className="rotate-200 group-hover:rotate-250 duration-1000" />
                   </div>
                 </div>

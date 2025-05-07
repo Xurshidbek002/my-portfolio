@@ -30,7 +30,7 @@ function App() {
         AOS.refresh();
         setAosReady(true);
       }, 800);
-    }, 5000);
+    }, 3000);
 
     return () => clearTimeout(timer);
   }, []);
@@ -49,10 +49,10 @@ function App() {
           >
             <LodingBg />
             <div className="text-center space-y-4 relative z-10">
-              <ul className="flex justify-center space-x-6 text-2xl md:text-4xl">
+              <ul className="flex justify-center gap-5 text-4xl md:text-5xl">
                 <li
                   data-aos="zoom-in-down"
-                  className="p-5 bg-blue-950/50 rounded-full"
+                  className="p-3 md:p-5 bg-blue-950/50 rounded-full"
                   data-aos-delay="100"
                   data-aos-duration="1500"
                 >
@@ -60,7 +60,7 @@ function App() {
                 </li>
                 <li
                   data-aos="zoom-in-down"
-                  className="p-5 bg-blue-950/50 rounded-full"
+                  className="p-3 md:p-5 bg-blue-950/50 rounded-full"
                   data-aos-delay="400"
                   data-aos-duration="1500"
                 >
@@ -68,56 +68,13 @@ function App() {
                 </li>
                 <li
                   data-aos="zoom-in-down"
-                  className="p-5 bg-blue-950/50 rounded-full"
+                  className="p-3 md:p-5 bg-blue-950/50 rounded-full"
                   data-aos-delay="700"
                   data-aos-duration="1500"
                 >
                   <FaCode />
                 </li>
               </ul>
-              <div className="text-2xl md:text-3xl font-semibold mt-7 ">
-                <p
-                  data-aos="zoom-in"
-                  data-aos-duration="2000"
-                  className="text-3xl text-blue-200 text-shadow-[0_0_70px_blue]/90"
-                >
-                  Assalom Alaykum
-                </p>
-                <span
-                  className="py-3 inline-block text-blue-400 text-shadow-[0_0_70px_blue]/90"
-                  data-aos="fade-up-right"
-                  data-aos-delay="1000"
-                >
-                  Mening Portfolio
-                </span>
-                <span className=""> </span>
-                <span
-                  className="py-3 inline-block text-blue-400 text-shadow-[0_0_70px_blue]/90"
-                  data-aos="fade-up-left"
-                  data-aos-delay="1000"
-                >
-                  Web sahifamga
-                </span>
-                <p className="text-purple-400 text-shadow-[0_0_70px_purple]/90">
-                  <span
-                    data-aos="zoom-in"
-                    data-aos-delay="1500"
-                    data-aos-duration="2500"
-                    className="inline-block"
-                  >
-                    Hush
-                  </span>
-                  <span> </span>
-                  <span
-                    data-aos="zoom-in"
-                    data-aos-delay="2000"
-                    data-aos-duration="2500"
-                    className="inline-block"
-                  >
-                    kelibsiz
-                  </span>
-                </p>
-              </div>
             </div>
           </motion.div>
         )}

@@ -5,6 +5,7 @@ import { FaExternalLinkAlt, FaInstagram } from "react-icons/fa";
 import { MdOutlineMailOutline } from "react-icons/md";
 import { LuSparkles } from "react-icons/lu";
 import Typewriter from "../Components/Typewriter";
+import { useTranslation } from "react-i18next";
 
 const base = [
   {
@@ -48,6 +49,7 @@ const linklar = [
 ];
 const Asosiy = () => {
   const [isHovering, setIsHovering] = useState(false);
+  const { t } = useTranslation();
 
   return (
     <div id="asosiy" className="flex items-center justify-center pt-25 pb-20">
@@ -57,27 +59,22 @@ const Asosiy = () => {
           <div className="md:pl-10 z-50 flex flex-col items-center md:items-start text-left">
             <p className=" z-10 mt-5 hidden md:flex  items-center text-[10px] md:text-[15px] text-blue-300 hover:bg-blue-500/20 duration-700 hover:shadow-[0_0_45px_blue]/30 hover:text-white font-medium bg-black/5 backdrop-blur-xl px-4 py-2 rounded-full border border-white/10">
               <LuSparkles className="mr-2 text-blue-400" />
-              Ready to Innovate
+              {t("home.redy")}
             </p>
             <h1
               data-aos="fade-up-right"
               className="text-6xl mb-2 pt-4 lg:text-7xl font-extrabold text-center md:text-left text-shadow-[0_0_60px_aqua]/40"
             >
               <span className="bg-gradient-to-r text-5xl md:text-7xl from-white via-blue-100 to-purple-200 bg-clip-text text-transparent">
-                Frontend
+                {t("home.title1")}
               </span>
               <br />
               <span className="bg-gradient-to-r from-[#6366f1] to-[#a855f7] bg-clip-text text-transparent">
-                Developer
+              {t("home.title2")}
               </span>
             </h1>
 
-            <Typewriter
-              texts={[
-                "Trained at IT Time Academy with solid fundamentals.",
-                "A passionate learner with 2 years of coding experience.",
-              ]}
-            />
+            <Typewriter texts={[t("home.type1"), t("home.type2")]} />
 
             <div className="flex gap-1 md:gap-3 ">
               {base.map((item) => (
@@ -104,7 +101,8 @@ const Asosiy = () => {
                 className="shadow-[0_0_25px_#935AF590] hover:shadow-[0_0_25px_#935AF5]  flex w-38 h-11 relative overflow-hidden justify-center rounded-xl bg-black/40 items-center gap-2 hover:gap-4 duration-1000 group font-bold text-white"
               >
                 <div className="absolute left-0 top-0 h-full w-0 bg-blue-400/10 transition-all duration-500 group-hover:w-full group-hover:translate-x-0 translate-x-[-100%]"></div>{" "}
-                Projects
+                {t("home.link1")}
+
                 <FaExternalLinkAlt
                   size={15}
                   className="group-hover:rotate-45 duration-500"
@@ -115,7 +113,7 @@ const Asosiy = () => {
                 className="  shadow-[0_0_25px_#935AF590] hover:shadow-[0_0_25px_#935AF5]  flex  w-38 h-11 relative overflow-hidden justify-center rounded-xl bg-black/40 items-center gap-2 hover:gap-4 duration-1000 group font-bold text-white"
               >
                 <div className="absolute left-0 top-0 h-full w-0 bg-blue-400/10 transition-all duration-500 group-hover:w-full group-hover:translate-x-0 translate-x-[-100%]"></div>{" "}
-                Contact
+                {t("home.link2")}
                 <MdOutlineMailOutline
                   size={19}
                   className="group-hover:rotate-10 duration-500"

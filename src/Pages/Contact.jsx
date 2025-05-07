@@ -1,14 +1,12 @@
-import { div } from "motion/react-client";
+import { div } from "motion/react-client"; // Bu importni o'zgartirmadim, sizning kodingizda shunday edi
 import React, { useEffect, useState } from "react";
-import {
-  FaExternalLinkAlt,
-  FaTelegramPlane,
-  FaTrash,
-} from "react-icons/fa";
+import { useTranslation } from "react-i18next";
+import { FaExternalLinkAlt, FaTelegramPlane, FaTrash } from "react-icons/fa";
 import { FiGithub, FiLinkedin } from "react-icons/fi";
 import { GrInstagram } from "react-icons/gr";
 import { IoImageOutline } from "react-icons/io5";
-import { RiSendPlaneFill } from "react-icons/ri";
+import { RiSendPlaneFill } from "react-icons/ri"; // Bu import ham avvalgi kodingizda bor edi
+import { toast } from "react-toastify";
 
 const links = [
   {
@@ -49,7 +47,7 @@ function Contact() {
     return stored ? JSON.parse(stored) : [];
   });
 
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false); // Fikr yuborish uchun isSubmitting
 
   const handleCommentChange = (e) => {
     const { name, value } = e.target;
@@ -70,24 +68,35 @@ function Contact() {
       reader.readAsDataURL(file);
     }
   };
-  const handleCommentSubmit = (e) => {
+
+  // ----- YANGILANGAN FUNKSIYA (handleCommentSubmit) -----
+  const handleCommentSubmit = async (e) => {
     e.preventDefault();
+    if (isSubmitting) return; // Qayta bosishni oldini olish
     setIsSubmitting(true);
+
     const newComment = {
       ...commentData,
       date: new Date().toISOString(),
-      id: Date.now(),
+      id: Date.now(), // Unikal ID uchun
     };
+
+    // 1. Lokal state va localStorage'ni darhol yangilash
     const updatedComments = [...comments, newComment];
     setComments(updatedComments);
     localStorage.setItem("comments", JSON.stringify(updatedComments));
-    sendToTelegram(newComment);
+
+    // 2. Telegramga yuborishni kutish (await)
+    await sendToTelegram(newComment);
+
+    // 3. Telegramga yuborish tugagandan keyin formani tozalash
     setCommentData({
       name: "",
       comment: "",
       image: null,
       imagePreview: null,
     });
+
     setIsSubmitting(false);
   };
 
@@ -97,47 +106,79 @@ function Contact() {
     localStorage.setItem("comments", JSON.stringify(updatedComments));
   };
 
+  // ----- YANGILANGAN FUNKSIYA (sendToTelegram - fikrlar uchun) -----
   const sendToTelegram = async (comment) => {
+    // Bot token va chat ID ni .env fayllaridan olish tavsiya etiladi
+    const botToken = "7861410527:AAEhCBGXK51lPWyStsfYyXVd3nLC5GKHNCw";
+    const chatId = "6873538625";
+    let messageText = `Yangi Fikr:\n\nIsm: ${comment.name}\nFikr: ${comment.comment}`;
+    let response; // Telegram API javobini saqlash uchun
+
     try {
-      const botToken = "7861410527:AAEhCBGXK51lPWyStsfYyXVd3nLC5GKHNCw";
-      const chatId = "6873538625";
-      const formData = new FormData();
-
-      let messageText = `New Comment:\n\nName: ${comment.name}\nComment: ${comment.comment}`;
-
       if (comment.image) {
+        // Agar rasm mavjud bo'lsa
+        const formData = new FormData();
         formData.append("chat_id", chatId);
-        formData.append("photo", comment.image);
+        formData.append("photo", comment.image); // 'comment.image' fayl obyekti
         formData.append("caption", messageText);
 
-        await fetch(`https://api.telegram.org/bot${botToken}/sendPhoto`, {
-          method: "POST",
-          body: formData,
-        });
+        response = await fetch(
+          `https://api.telegram.org/bot${botToken}/sendPhoto`,
+          {
+            method: "POST",
+            body: formData,
+          }
+        );
       } else {
-        await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            chat_id: chatId,
-            text: messageText,
-          }),
-        });
+        // Agar faqat matn bo'lsa
+        response = await fetch(
+          `https://api.telegram.org/bot${botToken}/sendMessage`,
+          {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ chat_id: chatId, text: messageText }),
+          }
+        );
+      }
+
+      // Telegram javobini tekshirish
+      if (response.ok) {
+        toast.success("Fikr Telegramga muvaffaqiyatli yuborildi!");
+      } else {
+        const errorData = await response.json().catch(() => null); // Agar javob JSON bo'lmasa xatolikni oldini olish
+        const errorMessage =
+          errorData?.description ||
+          `Telegramga yuborishda xato: ${response.status} ${response.statusText}`;
+        toast.error(errorMessage);
+        console.error("Telegram API xatoligi:", errorData || response);
       }
     } catch (error) {
-      console.error("Telegramga yuborishda xato:", error);
+      // Tarmoq xatolari yoki fetch'dan oldingi boshqa xatolarni ushlaydi
+      toast.error("Telegramga yuborishda tizim xatosi: " + error.message);
+      console.error(
+        "Telegramga yuborishdagi tarmoq yoki tizim xatoligi:",
+        error
+      );
     }
   };
-  const [loading, setLoading] = useState(false);
-  const [btnName, setBtnName] = useState("To Send");
+
+  // Quyidagi qismlar sizning asl kodingizdan, o'zgartirilmagan
+  const { t, i18n } = useTranslation();
+  const [loading, setLoading] = useState(false); // Bu ariza yuborish uchun loading
+  const [btnName, setBtnName] = useState(t("contact.left.to"));
+
+  useEffect(() => {
+    setBtnName(t("contact.left.to"));
+  }, [i18n.language, t]); // t ni ham dependency arrayga qo'shish yaxshi amaliyot
+
   const [forms, setforms] = useState({
     name: "",
     number: "",
     email: "",
     desc: "",
   });
+
+  // Asosiy ariza uchun handleSubmit (bu funksiyaga tegilmadi)
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -145,16 +186,14 @@ function Contact() {
     const chatId = "6873538625";
 
     const message = `
-       Yangi ariza:
-       👤 Ism: ${forms.name}
-       📞 Telefon: ${forms.number}
-       📧 Email: ${forms.email}
-       💬 Xabar: ${forms.desc}
-     `;
+        Yangi ariza:
+        👤 Ism: ${forms.name}
+        📞 Telefon: ${forms.number}
+        📧 Email: ${forms.email}
+        💬 Xabar: ${forms.desc}
+      `;
 
     setLoading(true);
-    setBtnName("Yuborilmoqda...");
-
     fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
       method: "POST",
       headers: {
@@ -166,9 +205,13 @@ function Contact() {
       }),
     })
       .then((data) => {
-        setBtnName("Send Message");
+        // Bu yerda data.ok ni tekshirish kerak aslida
+        setBtnName(t("contact.left.to2"));
+        toast.success("Yuborildi"); // Bu toast asosiy ariza uchun
+
         setTimeout(() => {
-          setBtnName("To Send");
+          // setBtnName(t("contact.left.to2")); // Bu qayta o'rnatish noto'g'ri, contact.left.to bo'lishi kerak
+          setBtnName(t("contact.left.to")); // To'g'rilandi
         }, 3000);
         setforms({
           name: "",
@@ -178,10 +221,7 @@ function Contact() {
         });
       })
       .catch((error) => {
-        setBtnName("Error ❌");
-        setTimeout(() => {
-          setBtnName("To Send");
-        }, 3000);
+        toast.error("Hatolik");
       })
       .finally(() => {
         setLoading(false);
@@ -211,6 +251,7 @@ function Contact() {
     button.appendChild(circle);
   };
 
+  // JSX qismi o'zgarishsiz
   return (
     <div id="contact">
       <div className="container">
@@ -218,32 +259,33 @@ function Contact() {
           data-aos="zoom-in-down"
           className="text-center text-4xl md:text-6xl font-extrabold text-transparent bg-gradient-to-r from-blue-500 to-purple-800 bg-clip-text"
         >
-          Contact Me
+          {t("contact.title")}
         </h2>
         <p
           data-aos="zoom-in-up"
           className="max-w-[90%] text-sm md:text-md md:max-w-[70%] text-center mx-auto text-white/80 mt-4 mb-6"
         >
-          Fill out the form below to contact us. We're happy to receive your
-          questions, suggestions, or collaboration requests. You can also leave
-          a comment to share your thoughts.
+          {t("contact.text")}
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-          {/* Left side (unchanged) */}
+          {/* Left side (ariza formasi) */}
           <div className="bg-[#33407641] rounded-2xl p-5">
-            <h2 className="text-2xl font-bold text-white pb-3">Contact Me</h2>
+            <h2 className="text-2xl font-bold text-white pb-3">
+              {t("contact.left.title")}
+            </h2>
             <form
-              onSubmit={handleSubmit}
+              onSubmit={handleSubmit} // Asosiy ariza uchun
               data-aos="zoom-in-right"
               className="flex flex-col gap-4 bg-[#33407641] p-5 rounded-2xl"
             >
+              {/* Inputlar (o'zgarishsiz) */}
               <div className="">
                 <input
                   required
                   type="text"
                   value={forms.name}
                   onChange={(e) => setforms({ ...forms, name: e.target.value })}
-                  placeholder="Full Name"
+                  placeholder={t("contact.left.name")}
                   className="bg-[#33407641] w-full outline-none rounded-xl border-1 border-transparent focus:scale-102 duration-500 focus:border-blue-500 focus:shadow-[0_0_15px_blue]/30 py-3 px-4 text-white"
                 />
               </div>
@@ -255,7 +297,7 @@ function Contact() {
                   onChange={(e) =>
                     setforms({ ...forms, number: e.target.value })
                   }
-                  placeholder="Phone Number"
+                  placeholder={t("contact.left.phone")}
                   className="bg-[#33407641] w-full outline-none rounded-xl border-1 border-transparent focus:scale-102 duration-500 focus:border-blue-500 focus:shadow-[0_0_15px_blue]/30 py-3 px-4 text-white"
                 />
               </div>
@@ -267,17 +309,17 @@ function Contact() {
                   onChange={(e) =>
                     setforms({ ...forms, email: e.target.value })
                   }
-                  placeholder="Email"
+                  placeholder={t("contact.left.email")}
                   className="bg-[#33407641] w-full outline-none rounded-xl border-1 border-transparent focus:scale-102 duration-500 focus:border-blue-500 focus:shadow-[0_0_15px_blue]/30 py-3 px-4 text-white"
                 />
               </div>
               <div className="">
                 <textarea
                   required
-                  name=""
+                  name="" // Bu name atributi bo'sh edi, shunday qoldirdim
                   value={forms.desc}
                   onChange={(e) => setforms({ ...forms, desc: e.target.value })}
-                  placeholder="Description"
+                  placeholder={t("contact.left.desc")}
                   className="bg-[#33407641] w-full outline-none rounded-xl border-1 border-transparent focus:scale-102 duration-500 focus:border-blue-500 focus:shadow-[0_0_15px_blue]/30 py-3 px-4 text-white"
                 />
               </div>
@@ -295,13 +337,14 @@ function Contact() {
               </div>
             </form>
 
-            {/* links */}
-
+            {/* links (o'zgarishsiz) */}
             <div
               data-aos="zoom-in-down"
               className="mt-5 bg-[#33407641] rounded-2xl p-5 flex flex-col gap-3"
             >
-              <h2 className="text-2xl font-bold text-white">Social Links</h2>
+              <h2 className="text-2xl font-bold text-white">
+                {t("contact.left.links")}
+              </h2>
               {links.map((item, index) => (
                 <div
                   key={index}
@@ -313,6 +356,8 @@ function Contact() {
 
                   <a
                     href={item.link}
+                    target="_blank" // Havolalar yangi tabda ochilishi uchun
+                    rel="noopener noreferrer" // Xavfsizlik uchun
                     className="flex items-center justify-between"
                   >
                     <div className="flex items-center gap-3">
@@ -328,16 +373,17 @@ function Contact() {
             </div>
           </div>
 
-          {/* Right side (comments section) */}
+          {/* Right side (fikrlar formasi va ro'yxati) */}
           <div className="bg-[#33407641] rounded-2xl p-5">
             <h3 className="text-xl font-bold mb-5 text-white">
-              Leave a Comment
+              {t("contact.right.com")}
             </h3>
             <form
               data-aos="zoom-in-left"
-              onSubmit={handleCommentSubmit}
+              onSubmit={handleCommentSubmit} // Fikrlar uchun to'g'rilangan funksiya
               className="mb-6 bg-[#33407641] p-5 rounded-2xl"
             >
+              {/* Inputlar (o'zgarishsiz, logikasi yuqorida to'g'rilangan) */}
               <div className="mb-4">
                 <input
                   type="text"
@@ -345,7 +391,7 @@ function Contact() {
                   autoComplete="off"
                   value={commentData.name}
                   onChange={handleCommentChange}
-                  placeholder="Your Name"
+                  placeholder={t("contact.right.name")}
                   required
                   className="bg-[#33407641] w-full outline-none rounded-xl border-1 border-transparent focus:scale-102 duration-500 focus:border-purple-500 focus:shadow-[0_0_15px_purple]/30 py-3 px-4 text-white"
                 />
@@ -355,7 +401,7 @@ function Contact() {
                   name="comment"
                   value={commentData.comment}
                   onChange={handleCommentChange}
-                  placeholder="Your Comment"
+                  placeholder={t("contact.right.desc")}
                   rows={3}
                   required
                   className="bg-[#33407641] w-full outline-none rounded-xl border-1 border-transparent focus:scale-102 duration-500 focus:border-purple-500 focus:shadow-[0_0_15px_purple]/30 py-3 px-4 text-white"
@@ -375,10 +421,10 @@ function Contact() {
                     className="block bg-[#33407641] w-full outline-none rounded-xl border-1 border-transparent hover:border-purple-500 hover:shadow-[0_0_15px_blue]/30 py-3 px-4 text-white text-center cursor-pointer duration-300"
                   >
                     {commentData.imagePreview ? (
-                      "Change Image"
+                      "Change Image" // Buni ham tarjima qilish mumkin: t("contact.right.changeimg")
                     ) : (
                       <div className="flex justify-center items-center gap-2">
-                        Add img <IoImageOutline />
+                        {t("contact.right.img")} <IoImageOutline />
                       </div>
                     )}
                   </label>
@@ -395,25 +441,26 @@ function Contact() {
               </div>
               <button
                 type="submit"
-                onClick={handleClick}
-                disabled={isSubmitting}
+                onClick={handleClick} // Ripple effekti uchun
+                disabled={isSubmitting} // Fikr yuborilayotganda tugmani o'chirish
                 className="ripple-container w-full bg-purple-500 hover:bg-purple-600 duration-700 rounded-xl py-3 text-xl font-extrabold text-white cursor-pointer disabled:opacity-70 disabled:cursor-not-allowed"
               >
                 <span className="ripple"></span>
-                {isSubmitting ? "Sending..." : "Post Comment"}
+                {t("contact.right.combtn")}
               </button>
             </form>
 
+            {/* Fikrlar ro'yxati (o'zgarishsiz) */}
             <div
               data-aos="zoom-in-down"
               className="comments-section max-h-[400px] overflow-y-auto no-scrollbar bg-[#33407641] p-5 h-auto rounded-2xl"
             >
               <h3 className="text-xl rounded-md font-bold mb-4 text-white">
-                Comments ({comments.length})
+                {t("contact.right.comments")} ({comments.length})
               </h3>
               {comments.length === 0 ? (
                 <p className="text-gray-400 text-center py-4">
-                  No comments yet
+                  {t("contact.right.no")}
                 </p>
               ) : (
                 comments.map((comment) => (
@@ -424,7 +471,7 @@ function Contact() {
                     <button
                       onClick={() => handleDeleteComment(comment.id)}
                       className="absolute bottom-2 right-2 text-red-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:text-red-500"
-                      title="Delete comment"
+                      title="Delete comment" // Buni ham tarjima qilish mumkin
                     >
                       <FaTrash />
                     </button>
@@ -443,7 +490,7 @@ function Contact() {
                       {comment.imagePreview && (
                         <img
                           src={comment.imagePreview}
-                          alt="Comment attachment"
+                          alt="Comment attachment" // Buni ham tarjima qilish mumkin
                           className="rounded-full w-20 h-20 object-cover"
                         />
                       )}

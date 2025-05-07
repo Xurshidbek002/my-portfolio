@@ -1,5 +1,81 @@
 {
-  "hello": "Hello",
-  "welcome": "Welcome",
-  "about": "About us"
+  "navbar": {
+    "home": "Bosh sahifa",
+    "about": "Biz haqimizda",
+    "portfolio": "Portfolio",
+    "contact": "Aloqa"
+  },
+  "home": {
+    "redy": "Innovatsiyaga tayyorman",
+    "title1": "Frontend",
+    "title2": "Dasturchi",
+    "type1": "IT Time Akademiyasida asosiy bilimlar o‘zlashtirilgan",
+    "type2": "2 yillik tajribaga ega, fidokor dasturchi",
+    "link1": "Loyihalar",
+    "link2": "Aloqa"
+  },
+  "about": {
+    "title": "Men haqimda",
+    "name": "Parpiboyev Xurshidbek",
+    "text": "G‘oyalarni raqamli tajribalarga aylantiraman",
+    "stitle": "Salom, men",
+    "stext": "Men Front-End dasturchiman, kompyuter tarmoqlari sohasida tajribam bor. Toza, moslashuvchan va foydalanuvchi uchun qulay veb-saytlar yaratishga e’tibor beraman.",
+    "resume": "Rezyume",
+    "1": {
+      "title": "Jami loyihalar",
+      "text": "Innovatsion veb yechimlar"
+    },
+    "2": {
+      "title": "Sertifikatlar",
+      "text": "Kasbiy ko‘nikmalar tasdiqlangan"
+    },
+    "3": {
+      "title": "Tajriba yillari",
+      "text": "Doimiy o‘rganish jarayoni"
+    }
+  },
+  "portfolio": {
+    "title": "Portfolio Namoyishi",
+    "text": "Loyihalar, sertifikatlar va texnik ko‘nikmalar orqali safarimni ko‘rib chiqing. Har bir bo‘lim mening uzluksiz o‘rganish yo‘limdagi bir bosqichni ifodalaydi.",
+    "1": "Loyihalar",
+    "2": "Sertifikatlar",
+    "3": "Texnologiyalar",
+    "live": "Jonli ko‘rish",
+    "git": "GitHub",
+    "card1": {
+      "name": "It Time Academy",
+      "text": "React, TypeScript, Tailwind CSS, i18next va Particles.js yordamida yaratilgan ko‘p tilli veb-sayt. 4 tilni qo‘llab-quvvatlaydi va Telegram bot orqali real vaqtli forma yuborishni ta'minlaydi."
+    },
+    "card2": {
+      "name": "Sleep Nest",
+      "text": "React, Zustand va Tailwind CSS asosida yaratilgan moslashuvchan landing sahifa. Mahsulot qidiruvi, localStorage asosidagi like tizimi va Telegram bot integratsiyasi mavjud."
+    },
+    "card3": {
+      "name": "admin panel (AORON)",
+      "text": "React, Axios va Fetch yordamida API asosidagi CRUD amallar bilan qurilgan. Swagger va Postman orqali test qilingan. Kontent boshqaruvi uchun mo‘ljallangan."
+    }
+  },
+  "contact": {
+    "title": "Biz bilan bog'laning",
+    "text": "Quyidagi shaklni to‘ldirib biz bilan bog‘laning. Sizning savollaringiz, takliflaringiz yoki hamkorlik istaklaringizni mamnuniyat bilan kutamiz. Shuningdek, o‘z fikringizni bildirishingiz mumkin.",
+    "left": {
+      "title": "Biz bilan bog'laning",
+      "name": "To‘liq ism",
+      "phone": "Telefon raqam",
+      "email": "Elektron pochta",
+      "desc": "Tavsif",
+      "to": "Yuborish uchun",
+      "to2": "Yuborildi",
+      "links": "Ijtimoiy tarmoqlar"
+    },
+    "right": {
+      "com": "Izoh qoldiring",
+      "name": "Ismingiz",
+      "desc": "Izohingiz",
+      "img": "Rasm qo‘shish",
+      "combtn": "Izoh yuborish",
+      "comments": "Izohlar",
+      "no": "Hozircha izoh yo‘q"
+    }
+  }
 }

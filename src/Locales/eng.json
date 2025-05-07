@@ -1,5 +1,81 @@
 {
-  "hello": "Hello",
-  "welcome": "Welcome",
-  "about": "About us"
+  "navbar": {
+    "home": "Home",
+    "about": "About",
+    "portfolio": "Portfolio",
+    "contact": "Contact"
+  },
+  "home": {
+    "redy": "Ready to Innovate",
+    "title1": "Frontend",
+    "title2": "Developer",
+    "type1": "Trained at IT Time Academy with solid fundamentals",
+    "type2": "A passionate learner with 2 years of coding experience",
+    "link1": "Projects",
+    "link2": "Contact"
+  },
+  "about": {
+    "title": "About Me",
+    "name": "Parpiboyev Xurshidbek",
+    "text": "Transforming ideas into digital experiences",
+    "stitle": "Hello, I'm",
+    "stext": "I'm a Front-End developer with a background in Computer Networking. I focus on building clean, responsive, and user-friendly websites that bring ideas to life.",
+    "resume": "Resume",
+    "1": {
+      "title": "Total Projects",
+      "text": "Inovative web soultions"
+    },
+    "2": {
+      "title": "Sertificates",
+      "text": "Profissional sliklls validated"
+    },
+    "3": {
+      "title": "Years of exprience",
+      "text": "Continuous learning journey"
+    }
+  },
+  "portfolio": {
+    "title": "Portfolio Showcase",
+    "text": "Explore my journey through projects, certifications, and technical expertise. Each section represents a milestone in my continuous learning path.",
+    "1": "Projects",
+    "2": "Sertificates",
+    "3": "Tech Stack",
+    "live": "Live Demo",
+    "git": "GitHub",
+    "card1": {
+      "name": "It Time Academy",
+      "text": "Multilingual website using React, TypeScript, Tailwind CSS, i18next, and Particles.js. Supports 4 languages and real-time form submission via Telegram Bot."
+    },
+    "card2": {
+      "name": "Sleep Nest",
+      "text": "Responsive landing page built with React, Zustand, and Tailwind CSS. Includes product search, like system with localStorage, and Telegram Bot integration."
+    },
+    "card3": {
+      "name": "admin panel(AORON)",
+      "text": "Built with React, Axios, and Fetch for API-based CRUD operations. Tested endpoints using Swagger and Postman. Designed for content management."
+    }
+  },
+  "contact": {
+    "title": "Contact me",
+    "text": "Fill out the form below to contact us. We're happy to receive your questions, suggestions, or collaboration requests. You can also leave a comment to share your thoughts.",
+    "left": {
+      "title": "Contact me",
+      "name": "Full Name",
+      "phone": "Phone Number",
+      "email": "Email",
+      "desc": "Description",
+      "to": "To Send",
+      "to2": "Send",
+      "links": "Social Links"
+    },
+    "right": {
+      "com": "Leave a Comment",
+      "name": "Your Name",
+      "desc": "Your Comment",
+      "img": "Add Img",
+      "combtn": "Post Comment",
+      "comments": "Comments",
+      "no": "No Comments Yet "
+    }
+  }
 }
