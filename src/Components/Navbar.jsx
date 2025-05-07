@@ -178,24 +178,24 @@ function Navbar() {
             ))}
           </nav>
           <div
-            className={`flex flex-col gap-[9px] cursor-pointer z-20 md:hidden`}
+            className={`flex flex-col gap-[7px] cursor-pointer z-20 md:hidden`}
             onClick={menu}
           >
             <div
-              className={`h-[3px] rounded-2xl w-9 bg-gradient-to-r from-blue-500 to-purple-800 transition-all duration-300 ${
-                open ? "rotate-45 translate-y-[12.5px]" : ""
+              className={`h-[2.7px] rounded-2xl w-8 bg-white/80 transition-all duration-200 ${
+                open ? "rotate-45 translate-y-[9.5px]" : ""
               }`}
             ></div>
             <div
-              className={`h-[3px] rounded-2xl w-9 bg-gradient-to-r from-blue-500 to-purple-800 transition-all duration-300${
+              className={`h-[2.7px] rounded-2xl w-8 bg-white/80 transition-all duration-200${
                 open
-                  ? "duration-500 bg-gradient-to-r from-blue-500/0 to-purple-800/0"
+                  ? "duration-500 opacity-0"
                   : ""
               }`}
             ></div>
             <div
-              className={`h-[3px] rounded-2xl w-9 bg-gradient-to-r from-blue-500 to-purple-800 transition-all duration-300 ${
-                open ? "-rotate-45 -translate-y-[12.5px]" : ""
+              className={`h-[2.7px] rounded-2xl w-8 bg-white/80 transition-all duration-200 ${
+                open ? "-rotate-45 -translate-y-[9.5px]" : ""
               }`}
             ></div>
           </div>
@@ -208,7 +208,7 @@ function Navbar() {
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: -50, opacity: 0 }}
             transition={{ duration: 0.2, ease: "easeInOut" }}
-            className="w-[70%] mt-2 mx-auto flex justify-between bg-white/2 backdrop-blur-xs px-5 py-2 rounded-full"
+            className="w-[95%] mt-2 mx-auto flex justify-between bg-white/2 backdrop-blur-xs px-5 py-2 rounded-full"
           >
             {navMobile.map((item) => (
               <a key={item.id} href={item.link} className="">
@@ -229,7 +229,7 @@ function Navbar() {
             : "text-white after:content-[''] after:absolute after:left-1/2 after:-translate-x-1/2 after:bottom-[-2px] after:h-[2px] after:w-[90%] after:origin-center after:scale-x-0 after:bg-gradient-to-r after:from-blue-500 after:to-purple-800 after:transition-transform after:duration-500"
         }`}
                   >
-                    {item.text}
+                    {t(item.text)}
                   </span>
                 </div>
               </a>
