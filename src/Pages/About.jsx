@@ -101,11 +101,11 @@ function About() {
           </div>
           {/* img tomon */}
           <div className="w-auto h-auto">
-            <div data-aos="zoom-in-up" data-aos-duration="3000" className="w-full flex md:hidden justify-center">
+            {/* <div data-aos="zoom-in-up" data-aos-duration="3000" className="w-full flex md:hidden justify-center">
               <img src={rasm} alt="" className="w-70 h-70 rounded-full" />
-            </div>
+            </div> */}
             <div
-              className="relative group hidden md:block"
+              className="relative group"
               data-aos="fade-up"
               data-aos-duration="1000"
             >

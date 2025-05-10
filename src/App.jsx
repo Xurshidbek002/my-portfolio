@@ -12,6 +12,7 @@ import { LuGithub, LuLinkedin } from "react-icons/lu";
 import LodingBg from "./Components/LodingBg";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import MobileBg from "./Components/MobileBg";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -88,7 +89,12 @@ function App() {
           animate={{ opacity: 1 }}
           transition={{ duration: 1.5 }}
         >
-          <AnimatedBackground />
+          <div className="hidden md:block">
+            <AnimatedBackground />
+          </div>
+          <div className="block md:hidden">
+            <MobileBg />
+          </div>
           <Navbar />
           <Asosiy />
           <About />
