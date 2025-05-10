@@ -101,8 +101,14 @@ function About() {
           </div>
           {/* img tomon */}
           <div className="w-auto h-auto">
-            <div data-aos="zoom-in-up" data-aos-duration="3000" className="w-full flex md:hidden justify-center">
-              <img src={rasm} alt="" className="w-70 h-70 rounded-full" />
+            <div data-aos="zoom-in-up" data-aos-duration="3000" className="relative w-full flex md:hidden justify-center">
+              <div className="absolute -inset-6 opacity-[25%] z-0">
+                {/* Gradientlar va bagni mobil uchun olib tashlaymiz */}
+                <div className="absolute inset-0 bg-gradient-to-r from-violet-600 via-indigo-500 to-purple-600 rounded-full blur-2xl animate-spin-slower" />
+                <div className="absolute inset-0 bg-gradient-to-l from-fuchsia-500 via-rose-500 to-pink-600 rounded-full blur-2xl animate-pulse-slow opacity-50" />
+                <div className="absolute inset-0 bg-gradient-to-t from-blue-600 via-cyan-500 to-teal-400 rounded-full blur-2xl animate-float opacity-50" />
+              </div>
+              <img src={rasm} alt="" className="relative w-70 h-70 rounded-full" />
             </div>
             <div
               className="relative group hidden md:block"

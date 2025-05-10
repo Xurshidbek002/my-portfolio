@@ -57,7 +57,7 @@
       "text": "React, Zustand va Tailwind CSS asosida yaratilgan moslashuvchan landing sahifa. Mahsulot qidiruvi, localStorage asosidagi like tizimi va Telegram bot integratsiyasi mavjud."
     },
     "card3": {
-      "name": "admin panel (AORON)",
+      "name": "Admin panel (AORON)",
       "text": "React, Axios va Fetch yordamida API asosidagi CRUD amallar bilan qurilgan. Swagger va Postman orqali test qilingan. Kontent boshqaruvi uchun mo‘ljallangan."
     }
   },

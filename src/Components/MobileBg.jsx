@@ -15,7 +15,7 @@ const MobileBg = () => {
     let animationId;
 
     const animate = () => {
-      time += 0.035; // 🔥 Tezlikni biroz oshirdik (0.02 -> 0.035)
+      time += 0.020; // 🔥 Tezlikni biroz oshirdik (0.02 -> 0.035)
 
       blobRefs.current.forEach((blob, index) => {
         const initialPos = initialPositions[index];
