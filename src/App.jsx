@@ -19,7 +19,7 @@ function App() {
 
   useEffect(() => {
     // Faqat loading ichida ishlovchi AOS
-    AOS.init({ duration: 1000, offset: 0, once: true });
+    AOS.init({ duration: 1000, offset: 0, once: false });
 
     const timer = setTimeout(() => {
       setIsLoading(false); // loading tugaydi

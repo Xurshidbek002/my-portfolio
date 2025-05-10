@@ -129,7 +129,7 @@ function Navbar() {
     <div id="home" className="fixed w-full mt-3 z-100">
       <div className="container">
         <div
-          className={` transition duration-1000 py-5 px-5 md:px-10 z-50 rounded-full flex justify-between items-center w-full ${
+          className={` transition duration-1000 py-3 px-5 md:px-10 z-50 rounded-full flex justify-between items-center w-full ${
             scrolled
               ? "bg-white/2 backdrop-blur-sm rounded-full"
               : "bg-transparent"
@@ -138,12 +138,12 @@ function Navbar() {
           <div className="flex items-center gap-6 md:gap-10">
             <a
               href="/"
-              className=" text-3xl items-center gap-2 md:gap-3 hover:gap-4 hover:text-shadow-[0_0_20px_blue]/30 duration-500 md:text-4xl font-bold flex text-transparent bg-gradient-to-r from-blue-500 to-purple-800 bg-clip-text"
+              className=" text-xl items-center gap-2 md:gap-3 hover:gap-4 hover:text-shadow-[0_0_20px_blue]/30 duration-500 md:text-2xl font-bold flex text-transparent bg-gradient-to-r from-blue-500 to-purple-800 bg-clip-text"
             >
               ZAFAROV.UZ
             </a>
             <div
-              className="flex items-center h-10 w-15 justify-center py-4 cursor-pointer"
+              className="flex items-center h-3 w-15 overflow-hidden justify-center py-4 cursor-pointer"
               onClick={rotateLanguage}
             >
               {orderedLangs.map((lang, index) => (
@@ -152,7 +152,7 @@ function Navbar() {
                   src={lang.img}
                   alt={lang.code}
                   className={`transition-all duration-500 object-contain
-            ${index === 1 ? "w-7 h-7 z-10 " : "w-3 h-3 opacity-50"}`}
+            ${index === 1 ? "w-6 h-6 " : "w-3 h-3 opacity-50"}`}
                 />
               ))}
             </div>
@@ -162,7 +162,7 @@ function Navbar() {
               <a
                 key={item.id}
                 href={item.link}
-                className={`relative text-xl font-bold inline-block transition duration-500 
+                className={`relative text-md font-bold inline-block transition duration-500 
               ${
                 activeLink === item.link
                   ? "font-bold text-transparent bg-gradient-to-r from-blue-500 to-purple-800 bg-clip-text after:w-full"
@@ -178,24 +178,22 @@ function Navbar() {
             ))}
           </nav>
           <div
-            className={`flex flex-col gap-[7px] cursor-pointer z-20 md:hidden`}
+            className={`flex flex-col gap-[5px] cursor-pointer z-20 md:hidden`}
             onClick={menu}
           >
             <div
-              className={`h-[2.7px] rounded-2xl w-8 bg-white/80 transition-all duration-200 ${
-                open ? "rotate-45 translate-y-[9.5px]" : ""
+              className={`h-[2.7px] rounded-2xl w-6 bg-white transition-all duration-200 ${
+                open ? "rotate-45 translate-y-[8px]" : ""
               }`}
             ></div>
             <div
-              className={`h-[2.7px] rounded-2xl w-8 bg-white/80 transition-all duration-200${
-                open
-                  ? "duration-500 opacity-0"
-                  : ""
+              className={`h-[2.7px] rounded-2xl w-6 bg-white transition-all duration-200${
+                open ? "duration-500 opacity-0" : ""
               }`}
             ></div>
             <div
-              className={`h-[2.7px] rounded-2xl w-8 bg-white/80 transition-all duration-200 ${
-                open ? "-rotate-45 -translate-y-[9.5px]" : ""
+              className={`h-[2.7px] rounded-2xl w-6 bg-white transition-all duration-200 ${
+                open ? "-rotate-45 -translate-y-[8px]" : ""
               }`}
             ></div>
           </div>
