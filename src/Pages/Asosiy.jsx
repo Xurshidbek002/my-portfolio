@@ -70,7 +70,7 @@ const Asosiy = () => {
               </span>
               <br />
               <span className="bg-gradient-to-r from-[#6366f1] to-[#a855f7] bg-clip-text text-transparent">
-              {t("home.title2")}
+                {t("home.title2")}
               </span>
             </h1>
 
@@ -102,7 +102,6 @@ const Asosiy = () => {
               >
                 <div className="absolute left-0 top-0 h-full w-0 bg-blue-400/10 transition-all duration-500 group-hover:w-full group-hover:translate-x-0 translate-x-[-100%]"></div>{" "}
                 {t("home.link1")}
-
                 <FaExternalLinkAlt
                   size={15}
                   className="group-hover:rotate-45 duration-500"

@@ -99,7 +99,7 @@ function Navbar() {
   return (
     <div id="home" className="fixed w-full mt-2 z-100">
       <div className="container">
-        <div className="transition duration-1000 backdrop-blur-3xl py-3 px-5 md:px-10 z-50 rounded-full flex justify-between items-center w-full bg-transparent">
+        <div className="transition duration-1000 backdrop-blur-md py-3 px-5 md:px-10 z-50 rounded-full flex justify-between items-center w-full">
           <div className="flex items-center gap-6 md:gap-10">
             <a
               href="/"
@@ -160,8 +160,8 @@ function Navbar() {
               }`}
             ></div>
             <div
-              className={`h-[2.7px] rounded-2xl w-6 bg-white transition-all duration-200 ${
-                open ? "duration-500 opacity-0" : ""
+              className={`h-[2.7px] rounded-2xl w-6 bg-white ${
+                open ? "opacity-0" : ""
               }`}
             ></div>
             <div
