@@ -263,7 +263,7 @@ function Contact() {
         </h2>
         <p
           data-aos="zoom-in-up"
-          className="max-w-[95%] text-[11px] md:text-md md:max-w-[70%] text-center mx-auto text-white/80 mt-4 mb-6"
+          className="max-w-[95%] text-[11px] md:text-[16px] md:max-w-[70%] text-center mx-auto text-white/80 mt-4 mb-6"
         >
           {t("contact.text")}
         </p>

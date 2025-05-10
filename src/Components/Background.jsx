@@ -28,7 +28,7 @@ const AnimatedBackground = () => {
         const y = initialPos.y + yOffset;
 
         blob.style.transform = `translate(${x}px, ${y}px)`;
-        blob.style.transition = "transform 1.4s ease-out";
+        blob.style.transition = "transform 4s ease-out";
       });
 
       requestId = requestAnimationFrame(handleScroll);
