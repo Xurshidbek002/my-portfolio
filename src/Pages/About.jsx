@@ -114,19 +114,19 @@ function About() {
               </div>
               <div className="relative">
                 <div className="w-60 h-60 sm:w-70 sm:h-70 rounded-full overflow-hidden shadow-[0_0_40px_rgba(120,119,198,0.3)] transform transition-all duration-700 group-hover:scale-105">
-                  <div className="absolute inset-0 border-4 border-white/20 rounded-full z-20 transition-all duration-700 group-hover:border-white/40 group-hover:scale-105" />
-                  <div className="absolute inset-0 bg-gradient-to-b rounded-full from-black/20 via-transparent to-black/40 z-10 transition-opacity duration-700 group-hover:opacity-0" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-purple-500/20 via-transparent to-blue-500/20 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-700 " />
+                  <div className="absolute inset-0 border-4 border-white/20 rounded-full z-20 transition-all duration-700 group-hover:border-white/40 group-hover:scale-105 hidden md:block" />
+                  <div className="absolute inset-0 bg-gradient-to-b rounded-full from-black/20 via-transparent to-black/40 z-10 transition-opacity duration-700 group-hover:opacity-0 hidden md:block" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-purple-500/20 via-transparent to-blue-500/20 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-700  hidden md:block" />
                   <img
                     src={rasm}
                     alt="Profile"
                     loading="lazy"
-                    className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110 group-hover:rotate-2 will-change-transform backface-hidden"
+                    className="w-full h-full object-cover transition-all duration-700 group-hover:scale-105 group-hover:rotate-1 will-change-transform backface-hidden"
                   />
                   <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-all duration-700 z-20">
-                    <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/20 to-transparent transform -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
-                    <div className="absolute inset-0 bg-gradient-to-bl from-transparent via-white/10 to-transparent transform translate-y-full group-hover:-translate-y-full transition-transform duration-1000 delay-100" />
-                    <div className="absolute inset-0 rounded-full border-8 border-white/10 scale-0 group-hover:scale-100 transition-transform duration-700 animate-pulse-slow" />
+                    <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/20 to-transparent transform -translate-x-full group-hover:translate-x-full transition-transform duration-1000 hidden md:block" />
+                    <div className="absolute inset-0 bg-gradient-to-bl from-transparent via-white/10 to-transparent transform translate-y-full group-hover:-translate-y-full transition-transform duration-1000 delay-100 hidden md:block" />
+                    <div className="absolute inset-0 rounded-full border-8 border-white/10 scale-0 group-hover:scale-100 transition-transform duration-700 animate-pulse-slow hidden md:block" />
                   </div>
                 </div>
               </div>

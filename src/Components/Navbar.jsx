@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { FaCode } from "react-icons/fa";
 import { IoHome } from "react-icons/io5";
 import { MdManageAccounts } from "react-icons/md";
 import { PiPlugsConnectedFill } from "react-icons/pi";
@@ -10,41 +9,22 @@ import ru from "../assets/ru.png";
 import en from "../assets/eng.png";
 import { useTranslation } from "react-i18next";
 import i18n from "../i18n";
+
 const languages = [
   { code: "uz", img: uz },
   { code: "ru", img: ru },
   { code: "eng", img: en },
 ];
+
 const nav = [
-  {
-    id: 1,
-    link: "#home",
-    text: "navbar.home",
-  },
-  {
-    id: 2,
-    link: "#about",
-    text: "navbar.about",
-  },
-  {
-    id: 3,
-    link: "#portfolio",
-    text: "navbar.portfolio",
-  },
-  {
-    id: 4,
-    link: "#contact",
-    text: "navbar.contact",
-  },
+  { id: 1, link: "#home", text: "navbar.home" },
+  { id: 2, link: "#about", text: "navbar.about" },
+  { id: 3, link: "#portfolio", text: "navbar.portfolio" },
+  { id: 4, link: "#contact", text: "navbar.contact" },
 ];
 
 const navMobile = [
-  {
-    id: 1,
-    link: "#home",
-    text: "navbar.home",
-    icon: <IoHome />,
-  },
+  { id: 1, link: "#home", text: "navbar.home", icon: <IoHome /> },
   {
     id: 2,
     link: "#about",
@@ -66,42 +46,13 @@ const navMobile = [
 ];
 
 function Navbar() {
-  const [scrolled, setScrolled] = useState(false);
-  const [activeLink, setActiveLink] = useState("#home");
   const [open, setOpen] = useState(false);
-
-  const menu = () => {
-    setOpen(!open);
-  };
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollPosition = window.scrollY;
-
-      nav.forEach(({ link }) => {
-        const section = document.querySelector(link);
-        if (section) {
-          const offsetTop = section.offsetTop - 80; // header balandligi
-          const offsetHeight = section.offsetHeight;
-
-          if (
-            scrollPosition >= offsetTop &&
-            scrollPosition < offsetTop + offsetHeight
-          ) {
-            setActiveLink(link);
-          }
-        }
-      });
-
-      setScrolled(scrollPosition > 30);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  const [activeLink, setActiveLink] = useState("#home");
+  const menu = () => setOpen(!open);
 
   const { t, i18n } = useTranslation();
   const [currentIndex, setCurrentIndex] = useState(0);
+
   useEffect(() => {
     const savedLang = localStorage.getItem("lang");
     if (savedLang) {
@@ -112,33 +63,47 @@ function Navbar() {
       }
     }
   }, []);
+
   const rotateLanguage = () => {
     const nextIndex = (currentIndex + 1) % languages.length;
     setCurrentIndex(nextIndex);
     i18n.changeLanguage(languages[nextIndex].code);
     localStorage.setItem("lang", languages[nextIndex].code);
   };
+
   const getLangOrder = () => {
     const prev = (currentIndex + languages.length - 1) % languages.length;
     const next = (currentIndex + 1) % languages.length;
     return [languages[prev], languages[currentIndex], languages[next]];
   };
+
   const orderedLangs = getLangOrder();
 
+  // ✅ Scroll asosida active link aniqlash
+  useEffect(() => {
+    const handleScroll = () => {
+      let current = "#home";
+      nav.forEach(({ link }) => {
+        const section = document.querySelector(link);
+        if (section && window.scrollY >= section.offsetTop - 80) {
+          current = link;
+        }
+      });
+      setActiveLink(current);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <div id="home" className="fixed w-full mt-3 z-100">
+    <div id="home" className="fixed w-full mt-2 z-100">
       <div className="container">
-        <div
-          className={` transition duration-1000 py-3 px-5 md:px-10 z-50 rounded-full flex justify-between items-center w-full ${
-            scrolled
-              ? "bg-white/2 backdrop-blur-sm rounded-full"
-              : "bg-transparent"
-          }`}
-        >
+        <div className="transition duration-1000 backdrop-blur-3xl py-3 px-5 md:px-10 z-50 rounded-full flex justify-between items-center w-full bg-transparent">
           <div className="flex items-center gap-6 md:gap-10">
             <a
               href="/"
-              className=" text-xl items-center gap-2 md:gap-3 hover:gap-4 hover:text-shadow-[0_0_20px_blue]/30 duration-500 md:text-2xl font-bold flex text-transparent bg-gradient-to-r from-blue-500 to-purple-800 bg-clip-text"
+              className="text-xl items-center gap-2 md:gap-3 hover:gap-4 hover:text-shadow-[0_0_20px_blue]/30 duration-500 md:text-2xl flex text-white font-extrabold"
             >
               ZAFAROV.UZ
             </a>
@@ -151,34 +116,42 @@ function Navbar() {
                   key={lang.code}
                   src={lang.img}
                   alt={lang.code}
-                  className={`transition-all duration-500 object-contain
-            ${index === 1 ? "w-6 h-6 " : "w-3 h-3 opacity-50"}`}
+                  className={`transition-all duration-500 object-contain ${
+                    index === 1 ? "w-6 h-6" : "w-3 h-3 opacity-50"
+                  }`}
                 />
               ))}
             </div>
           </div>
+
+          {/* Nav with scroll-based active */}
           <nav className="md:flex gap-5 hidden">
             {nav.map((item) => (
               <a
                 key={item.id}
                 href={item.link}
-                className={`relative text-md font-bold inline-block transition duration-500 
-              ${
-                activeLink === item.link
-                  ? "font-bold text-transparent bg-gradient-to-r from-blue-500 to-purple-800 bg-clip-text after:w-full"
-                  : "text-gray-300 hover:text-white after:w-0"
-              }
-              after:content-[''] after:absolute after:left-0 after:-bottom-[2px] after:h-[2px]
-              after:bg-gradient-to-r after:from-blue-500 after:to-purple-800
-              hover:after:w-full after:transition-all after:duration-300
-            `}
+                className={`relative text-md font-bold inline-block transition duration-500
+                  ${
+                    activeLink === item.link
+                      ? "text-white"
+                      : "text-gray-300 hover:text-white"
+                  }
+                  after:content-[''] after:absolute after:left-0 after:-bottom-[2px] after:h-[2px]
+                  after:bg-gradient-to-r after:from-blue-500 after:to-purple-800
+                  after:transition-all after:duration-300
+                  ${
+                    activeLink === item.link
+                      ? "after:w-full"
+                      : "after:w-0 hover:after:w-full"
+                  }`}
               >
                 {t(item.text)}
               </a>
             ))}
           </nav>
+
           <div
-            className={`flex flex-col gap-[5px] cursor-pointer z-20 md:hidden`}
+            className="flex flex-col gap-[5px] cursor-pointer z-20 md:hidden"
             onClick={menu}
           >
             <div
@@ -187,7 +160,7 @@ function Navbar() {
               }`}
             ></div>
             <div
-              className={`h-[2.7px] rounded-2xl w-6 bg-white transition-all duration-200${
+              className={`h-[2.7px] rounded-2xl w-6 bg-white transition-all duration-200 ${
                 open ? "duration-500 opacity-0" : ""
               }`}
             ></div>
@@ -199,6 +172,8 @@ function Navbar() {
           </div>
         </div>
       </div>
+
+      {/* Mobil menyu o‘zgarishsiz */}
       <AnimatePresence>
         {open && (
           <motion.div
@@ -213,20 +188,11 @@ function Navbar() {
                 <div className="flex flex-col items-center">
                   <div
                     onClick={() => setOpen(false)}
-                    className={`text-2xl ${
-                      activeLink === item.link ? "text-blue-500" : "text-white"
-                    }`}
+                    className="text-2xl text-white"
                   >
                     {item.icon}
                   </div>
-                  <span
-                    className={`relative text-[14px] text-center font-bold transition-all duration-300 bg-gradient-to-r text-transparent from-blue-500 to-purple-500 bg-clip-text
-        ${
-          activeLink === item.link
-            ? "after:content-[''] after:absolute after:left-1/2 after:-translate-x-1/2 after:bottom-[-2px] after:h-[2px] after:w-[90%] after:origin-center after:scale-x-100 after:bg-gradient-to-r after:from-blue-500 after:to-purple-800 after:transition-transform after:duration-500"
-            : "text-white after:content-[''] after:absolute after:left-1/2 after:-translate-x-1/2 after:bottom-[-2px] after:h-[2px] after:w-[90%] after:origin-center after:scale-x-0 after:bg-gradient-to-r after:from-blue-500 after:to-purple-800 after:transition-transform after:duration-500"
-        }`}
-                  >
+                  <span className="relative text-[14px] text-center font-bold transition-all duration-300 bg-gradient-to-r text-transparent from-blue-500 to-purple-500 bg-clip-text">
                     {t(item.text)}
                   </span>
                 </div>

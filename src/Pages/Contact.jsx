@@ -30,7 +30,7 @@ const links = [
   {
     name: "Instagram",
     icon: <GrInstagram />,
-    link: "https://www.instagram.com/egoistfunny?igsh=dzV1d2tpYW0ya2Zu",
+    link: "https://www.instagram.com/egooist.uz",
     color: "purple-400",
   },
 ];

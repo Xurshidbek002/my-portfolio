@@ -44,7 +44,7 @@ const linklar = [
   {
     id: 3,
     icon: <FaInstagram />,
-    link: "https://www.instagram.com/egoistfunny",
+    link: "https://www.instagram.com/egooist.uz",
   },
 ];
 const Asosiy = () => {

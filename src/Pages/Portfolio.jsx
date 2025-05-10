@@ -166,7 +166,7 @@ function Portfolio() {
                   <div className="text-4xl group-hover:rotate-10 duration-500">
                     {item.icon}
                   </div>
-                  <div className="font-extrabold group-hover:scale-105 duration-500">
+                  <div className="font-extrabold text-[12px] group-hover:scale-105 duration-500">
                     {t(item.name)}
                   </div>
                 </div>
