@@ -19,6 +19,7 @@ import tech11 from "../assets/skills/tech4.png";
 import { HiExternalLink } from "react-icons/hi";
 import { FiGithub } from "react-icons/fi";
 import { useTranslation } from "react-i18next";
+import ittime from "../assets/ittime.png"
 
 const buttons = [
   {
@@ -67,9 +68,9 @@ const projects = [
 
 const certificat = [
   {
-    title: "It Time Academy",
-    img: portfolio1,
-    desc: "olish kerak keyin yozaman",
+    title: "portfolio.sertfikatlar.1.title",
+    img: ittime,
+    desc: "portfolio.sertfikatlar.1.desc",
   },
 ];
 const tech = [
@@ -147,7 +148,7 @@ function Portfolio() {
           <p
             data-aos="zoom-in-up"
             data-aos-offset="30"
-            className="max-w-sm md:max-w-3xl text-center text-sm md:text-[18px] mx-auto text-white/70 mt-5"
+            className="max-w-sm md:max-w-3xl text-center text-[12px] md:text-[18px] mx-auto text-white/70 mt-5"
           >
             {t("portfolio.text")}
           </p>
@@ -248,14 +249,14 @@ function Portfolio() {
                       <img
                         src={item.img}
                         alt={item.title}
-                        className="blur-[3px] object-cover w-full h-50 scale-110 group-hover:scale-100 duration-700 group-hover:blur-[0]"
+                        className="object-cover w-full h-50 scale-110 group-hover:scale-100 duration-700"
                       />
                     </div>
                     <div className="p-3 ">
                       <h3 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#6366f1] to-[#55f77b]">
-                        {item.title}
+                        {t(item.title)}
                       </h3>
-                      <p className="text-sm text-white/60">{item.desc}</p>
+                      <p className="text-sm text-white/60">{t(item.desc)}</p>
                     </div>
                   </div>
                 ))}

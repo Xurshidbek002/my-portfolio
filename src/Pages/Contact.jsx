@@ -263,7 +263,7 @@ function Contact() {
         </h2>
         <p
           data-aos="zoom-in-up"
-          className="max-w-[90%] text-sm md:text-md md:max-w-[70%] text-center mx-auto text-white/80 mt-4 mb-6"
+          className="max-w-[95%] text-[11px] md:text-md md:max-w-[70%] text-center mx-auto text-white/80 mt-4 mb-6"
         >
           {t("contact.text")}
         </p>
@@ -361,10 +361,10 @@ function Contact() {
                     className="flex items-center justify-between"
                   >
                     <div className="flex items-center gap-3">
-                      <div className={`text-3xl text-${item.color}`}>
+                      <div className={`text-xl md:text-3xl text-${item.color}`}>
                         {item.icon}
                       </div>
-                      <div className="text-xl font-bold">{item.name}</div>
+                      <div className="text-md md:text-xl font-bold">{item.name}</div>
                     </div>
                     <FaExternalLinkAlt className="group-hover:rotate-45 duration-500 group-hover:text-blue-500" />
                   </a>

@@ -42,6 +42,12 @@
     "3": "Tech Stack",
     "live": "Live Demo",
     "git": "GitHub",
+    "sertfikatlar": {
+      "1": {
+        "title": "IT Time Academy",
+        "desc": "I studied Frontend at IT Time Academy, learning technologies like HTML, CSS, JavaScript, and React. I successfully completed the course and earned a certificate."
+      }
+    },
     "card1": {
       "name": "It Time Academy",
       "text": "Multilingual website using React, TypeScript, Tailwind CSS, i18next, and Particles.js. Supports 4 languages and real-time form submission via Telegram Bot."

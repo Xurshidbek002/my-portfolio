@@ -42,6 +42,12 @@
     "3": "Технологии",
     "live": "Демо",
     "git": "GitHub",
+    "sertfikatlar": {
+      "1": {
+        "title": "IT Time Academy",
+        "desc": "Я обучался по направлению Frontend в IT Time Academy, изучая такие технологии как HTML, CSS, JavaScript и React. Успешно завершил курс и получил сертификат."
+      }
+    },
     "card1": {
       "name": "It Time Academy",
       "text": "Многоязычный сайт с использованием React, TypeScript, Tailwind CSS, i18next и Particles.js. Поддерживает 4 языка и отправку форм в реальном времени через Telegram-бота."

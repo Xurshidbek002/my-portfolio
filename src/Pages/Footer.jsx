@@ -1,10 +1,12 @@
 import { FaDownload, FaGithub, FaLinkedin } from "react-icons/fa";
 import resume from "../../public/XurshidbekResume.pdf";
+import { useTranslation } from "react-i18next";
 
 const Footer = () => {
+  const { t } = useTranslation();
   return (
     <div className="mt-5 mb-3 px-2">
-      <div className="container relative rounded-2xl bg-blue-700/20 overflow-hidden ">
+      <div className="container relative rounded-2xl bg-blue-700/10 overflow-hidden ">
         {/* Yaltirash effekti */}
         <div className="shimmer-tr"></div>
         <div className="shimmer-bl"></div>
@@ -45,16 +47,16 @@ const Footer = () => {
             </a>
             <div className="hidden sm:flex gap-3 md:gap-6 font-bold">
               <a href="/" className="hover:text-gray-400">
-                Home
+                {t("navbar.home")}
               </a>
               <a href="#about" className="hover:text-gray-400">
-                About
+                {t("navbar.about")}
               </a>
               <a href="#portfolio" className="hover:text-gray-400">
-                Portfolio
+                {t("navbar.portfolio")}
               </a>
               <a href="#contact" className="hover:text-gray-400">
-                Contact
+                {t("navbar.contact")}{" "}
               </a>
             </div>
           </div>

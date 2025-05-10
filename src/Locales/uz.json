@@ -42,6 +42,12 @@
     "3": "Texnologiyalar",
     "live": "Jonli ko‘rish",
     "git": "GitHub",
+    "sertfikatlar": {
+      "1": {
+        "title": "IT Time Academy",
+        "desc": "Frontend bo‘yicha IT Time Academy’da tahsil olib, zamonaviy texnologiyalarni o‘rgandim va sertifikat oldim."
+      }
+    },
     "card1": {
       "name": "It Time Academy",
       "text": "React, TypeScript, Tailwind CSS, i18next va Particles.js yordamida yaratilgan ko‘p tilli veb-sayt. 4 tilni qo‘llab-quvvatlaydi va Telegram bot orqali real vaqtli forma yuborishni ta'minlaydi."
