@@ -53,11 +53,11 @@
       "text": "Многоязычный сайт с использованием React, TypeScript, Tailwind CSS, i18next и Particles.js. Поддерживает 4 языка и отправку форм в реальном времени через Telegram-бота."
     },
     "card2": {
-      "name": "Sleep Nest",
+      "name": "Noctella",
       "text": "Адаптивная лендинг-страница на базе React, Zustand и Tailwind CSS. Включает поиск продуктов, систему лайков с localStorage и интеграцию Telegram-бота."
     },
     "card3": {
-      "name": "админ панель (AORON)",
+      "name": "Aдмин панель (AORON)",
       "text": "Разработано с использованием React, Axios и Fetch для API-операций CRUD. Эндпоинты протестированы с помощью Swagger и Postman. Предназначено для управления контентом."
     }
   },

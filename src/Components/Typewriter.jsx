@@ -10,7 +10,6 @@ const Typewriter = ({ texts, speed = 80, pause = 1500 }) => {
     if (index >= texts.length) setIndex(0);
 
     if (!deleting && subIndex === texts[index].length) {
-      // Wait a bit before starting to delete the text
       setTimeout(() => setDeleting(true), pause);
       return;
     }
@@ -23,14 +22,11 @@ const Typewriter = ({ texts, speed = 80, pause = 1500 }) => {
 
     const timeout = setTimeout(() => {
       if (!deleting) {
-        // If not deleting, increase the subIndex
         setSubIndex((prev) => prev + 1);
       } else {
-        // If deleting, decrease the subIndex
         setSubIndex((prev) => prev - 1);
       }
 
-      // Update the text to match the current subIndex
       setText(texts[index].substring(0, subIndex + (deleting ? 0 : 1)));
     }, speed);
 

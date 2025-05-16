@@ -18,7 +18,7 @@ const LodingBg = () => {
       time += 0.01;
 
       blobRefs.current.forEach((blob, index) => {
-        if (!blob) return; // DOMga ulanmagan bo‘lsa, tashlab ket
+        if (!blob) return;
         const initialPos = initialPositions[index];
 
         const xOffset = Math.sin(time + index) * 340;
@@ -58,7 +58,6 @@ const LodingBg = () => {
   return (
     <div className="fixed inset-0 pointer-events-none">
       <div className="absolute inset-0">
-        {/* Harakatlanuvchi to'rtta blob */}
         <div
           ref={(ref) => (blobRefs.current[0] = ref)}
           className="absolute top-0 -left-4 md:w-96 md:h-96 w-72 h-72 bg-purple-500 rounded-full mix-blend-multiply filter blur-[128px] opacity-40 md:opacity-20"

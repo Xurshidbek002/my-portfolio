@@ -53,7 +53,7 @@
       "text": "React, TypeScript, Tailwind CSS, i18next va Particles.js yordamida yaratilgan ko‘p tilli veb-sayt. 4 tilni qo‘llab-quvvatlaydi va Telegram bot orqali real vaqtli forma yuborishni ta'minlaydi."
     },
     "card2": {
-      "name": "Sleep Nest",
+      "name": "Noctella",
       "text": "React, Zustand va Tailwind CSS asosida yaratilgan moslashuvchan landing sahifa. Mahsulot qidiruvi, localStorage asosidagi like tizimi va Telegram bot integratsiyasi mavjud."
     },
     "card3": {

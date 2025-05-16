@@ -53,11 +53,11 @@
       "text": "Multilingual website using React, TypeScript, Tailwind CSS, i18next, and Particles.js. Supports 4 languages and real-time form submission via Telegram Bot."
     },
     "card2": {
-      "name": "Sleep Nest",
+      "name": "Noctella",
       "text": "Responsive landing page built with React, Zustand, and Tailwind CSS. Includes product search, like system with localStorage, and Telegram Bot integration."
     },
     "card3": {
-      "name": "admin panel(AORON)",
+      "name": "Admin panel(AORON)",
       "text": "Built with React, Axios, and Fetch for API-based CRUD operations. Tested endpoints using Swagger and Postman. Designed for content management."
     }
   },

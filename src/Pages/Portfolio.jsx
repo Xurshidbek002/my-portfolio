@@ -1,78 +1,78 @@
-import React, { useState } from "react";
-import { GiStarsStack } from "react-icons/gi";
-import { IoCode } from "react-icons/io5";
-import { LiaCertificateSolid } from "react-icons/lia";
-import portfolio1 from "../assets/p1.png";
-import portfolio2 from "../assets/p2.png";
-import portfolio3 from "../assets/p3.png";
-import { desc } from "motion/react-client";
-import tech1 from "../assets/skills/reactjs.svg";
-import tech2 from "../assets/skills/javascript.svg";
-import tech3 from "../assets/skills/SweetAlert.svg";
-import tech4 from "../assets/skills/css.svg";
-import tech5 from "../assets/skills/vercel.svg";
-import tech7 from "../assets/skills/tailwind.svg";
-import tech8 from "../assets/skills/tech1.png";
-import tech9 from "../assets/skills/tech2.png";
-import tech10 from "../assets/skills/tech3.png";
-import tech11 from "../assets/skills/tech4.png";
-import { HiExternalLink } from "react-icons/hi";
-import { FiGithub } from "react-icons/fi";
-import { useTranslation } from "react-i18next";
-import ittime from "../assets/ittime.png"
+import React, { useState } from 'react'
+import { GiStarsStack } from 'react-icons/gi'
+import { IoCode } from 'react-icons/io5'
+import { LiaCertificateSolid } from 'react-icons/lia'
+import portfolio1 from '../assets/p1.png'
+import portfolio2 from '../assets/noctella.png'
+import portfolio3 from '../assets/p3.png'
+// import { desc } from "motion/react-client";
+import tech1 from '../assets/skills/reactjs.svg'
+import tech2 from '../assets/skills/javascript.svg'
+import tech3 from '../assets/skills/SweetAlert.svg'
+import tech4 from '../assets/skills/css.svg'
+import tech5 from '../assets/skills/vercel.svg'
+import tech7 from '../assets/skills/tailwind.svg'
+import tech8 from '../assets/skills/tech1.png'
+import tech9 from '../assets/skills/tech2.png'
+import tech10 from '../assets/skills/tech3.png'
+import tech11 from '../assets/skills/tech4.png'
+import { HiExternalLink } from 'react-icons/hi'
+import { FiGithub } from 'react-icons/fi'
+import { useTranslation } from 'react-i18next'
+import ittime from '../assets/ittime.png'
 
 const buttons = [
   {
-    id: "projects",
-    name: "portfolio.1",
+    id: 'projects',
+    name: 'portfolio.1',
     icon: <IoCode />,
   },
   {
-    id: "certificates",
-    name: "portfolio.2",
+    id: 'certificates',
+    name: 'portfolio.2',
     icon: <LiaCertificateSolid />,
   },
   {
-    id: "tech",
-    name: "portfolio.3",
+    id: 'tech',
+    name: 'portfolio.3',
     icon: <GiStarsStack />,
   },
-];
+]
 
 const projects = [
   {
-    title: "portfolio.card1.name",
-    aos: "fade-up-right",
+    title: 'portfolio.card1.name',
+    aos: 'fade-up-right',
     img: portfolio1,
-    desc: "portfolio.card1.text",
-    git: "https://github.com/Xurshidbek002/IT-TIME-ACADEMY.git",
-    link: "https://it-time-academy.vercel.app/",
+    desc: 'portfolio.card1.text',
+    git: 'https://github.com/Xurshidbek002/IT-TIME-ACADEMY.git',
+    link: 'https://www.ittime-academy.uz/',
   },
   {
-    title: "portfolio.card2.name",
-    aos: "fade-up",
+    title: 'portfolio.card2.name',
+    aos: 'fade-up',
     img: portfolio2,
-    desc: "portfolio.card2.text",
-    git: "https://github.com/Xurshidbek002/SleepNest.git",
-    link: "https://sleep-nest.vercel.app/",
+    desc: 'portfolio.card2.text',
+    git: 'https://github.com/Xurshidbek002/noctella',
+    link: 'https://noctella.uz/collection',
   },
   {
-    title: "portfolio.card3.name",
-    aos: "fade-up-left",
+    title: 'portfolio.card3.name',
+    aos: 'fade-up-left',
     img: portfolio3,
-    desc: "portfolio.card3.text",
-    git: "https://github.com/Xurshidbek002/aoron-admin-panel.git",
-    link: "https://aoron-admin-panel-opal.vercel.app/",
+    desc: 'portfolio.card3.text',
+    git: 'https://github.com/Xurshidbek002/aoron-admin-panel.git',
+    link: 'https://aoron-admin-panel-opal.vercel.app/',
   },
-];
+]
 
 const certificat = [
   {
-    title: "portfolio.sertfikatlar.1.title",
+    title: 'portfolio.sertfikatlar.1.title',
     img: ittime,
-    desc: "portfolio.sertfikatlar.1.desc",
+    desc: 'portfolio.sertfikatlar.1.desc',
   },
-];
+]
 const tech = [
   {
     img: tech1,
@@ -104,35 +104,31 @@ const tech = [
   {
     img: tech11,
   },
-];
+]
 
 function Portfolio() {
-  const [select, setSelect] = useState("projects");
+  const [select, setSelect] = useState('projects')
 
   const handleClick = (e, id) => {
-    setSelect(id);
-    const button = e.currentTarget;
-    const circle = document.createElement("span");
-    const diameter = Math.max(button.clientWidth, button.clientHeight);
-    const radius = diameter / 2;
+    setSelect(id)
+    const button = e.currentTarget
+    const circle = document.createElement('span')
+    const diameter = Math.max(button.clientWidth, button.clientHeight)
+    const radius = diameter / 2
 
-    circle.style.width = circle.style.height = `${diameter}px`;
-    circle.style.left = `${
-      e.clientX - button.getBoundingClientRect().left - radius
-    }px`;
-    circle.style.top = `${
-      e.clientY - button.getBoundingClientRect().top - radius
-    }px`;
-    circle.classList.add("ripple");
+    circle.style.width = circle.style.height = `${diameter}px`
+    circle.style.left = `${e.clientX - button.getBoundingClientRect().left - radius}px`
+    circle.style.top = `${e.clientY - button.getBoundingClientRect().top - radius}px`
+    circle.classList.add('ripple')
 
-    button.appendChild(circle);
+    button.appendChild(circle)
 
     setTimeout(() => {
-      circle.remove();
-    }, 1000);
-  };
+      circle.remove()
+    }, 1000)
+  }
 
-  const { t } = useTranslation();
+  const { t } = useTranslation()
 
   return (
     <div id="portfolio" className="mb-10">
@@ -143,14 +139,14 @@ function Portfolio() {
             data-aos-offset="30"
             className="text-center text-3xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#6366f1] to-[#a855f7]"
           >
-            {t("portfolio.title")}
+            {t('portfolio.title')}
           </h2>
           <p
             data-aos="zoom-in-up"
             data-aos-offset="30"
             className="max-w-sm md:max-w-3xl text-center text-[12px] md:text-[18px] mx-auto text-white/70 mt-5"
           >
-            {t("portfolio.text")}
+            {t('portfolio.text')}
           </p>
           <div className="grid grid-cols-3 bg-blue-900/20 backdrop-blur-2xl p-3 rounded-xl gap-4 md:gap-7 mt-5">
             {buttons.map((item, index) => (
@@ -159,14 +155,12 @@ function Portfolio() {
                 key={index}
                 className={`group ripple-container flex items-center justify-center rounded-xl py-3 md:py-5 transition-all duration-1000 hover:-translate-y-1 ${
                   select === item.id
-                    ? "bg-[#194c9d]/80 backdrop-blur-2xl"
-                    : "bg-[#163363]/50 hover:bg-[#194c9d]/45 hover:-translate-y-1"
+                    ? 'bg-[#194c9d]/80 backdrop-blur-2xl'
+                    : 'bg-[#163363]/50 hover:bg-[#194c9d]/45 hover:-translate-y-1'
                 }`}
               >
                 <div className="flex flex-col items-center gap-2 text-blue-100 z-10">
-                  <div className="text-4xl group-hover:rotate-10 duration-500">
-                    {item.icon}
-                  </div>
+                  <div className="text-4xl group-hover:rotate-10 duration-500">{item.icon}</div>
                   <div className="font-extrabold text-[12px] group-hover:scale-105 duration-500">
                     {t(item.name)}
                   </div>
@@ -175,7 +169,7 @@ function Portfolio() {
             ))}
           </div>
           <div className="mt-5 text-white">
-            {select === "projects" && (
+            {select === 'projects' && (
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
                 {projects.map((item, index) => (
                   <div
@@ -205,10 +199,10 @@ function Portfolio() {
                           data-replace="Live Demo"
                         >
                           <span className="inline-block transition-transform duration-300 group-hover:-translate-x-[200%]">
-                            {t("portfolio.live")}
+                            {t('portfolio.live')}
                           </span>
                           <span className="absolute left-3 top-1/2 -translate-y-1/2 translate-x-[200%] text-cyan-400 transition-transform duration-300 group-hover:translate-x-0">
-                            {t("portfolio.live")}
+                            {t('portfolio.live')}
                           </span>
                           <HiExternalLink className="w-4 h-4 group-hover:text-cyan-400 transition-transform duration-300 group-hover:rotate-45 group-hover:translate-x-1" />
                           <span className="absolute bottom-0 left-0 w-full h-0.5 bg-cyan-400 origin-[100%_50%] scale-x-0 transition-transform duration-300 group-hover:origin-[0%_50%] group-hover:scale-x-100" />
@@ -223,10 +217,10 @@ function Portfolio() {
                           data-replace="Github"
                         >
                           <span className="inline-block transition-transform duration-300 group-hover:-translate-x-[200%]">
-                            {t("portfolio.git")}
+                            {t('portfolio.git')}
                           </span>
                           <span className="absolute left-3 top-1/2 text-cyan-300 -translate-y-1/2 translate-x-[200%] transition-transform duration-300 group-hover:translate-x-0">
-                            {t("portfolio.git")}
+                            {t('portfolio.git')}
                           </span>
                           <FiGithub className="w-4 h-4 transition-transform group-hover:text-cyan-300 duration-300 group-hover:translate-x-1" />
                           <span className="absolute bottom-0 left-0 w-full h-0.5 bg-blue-300 origin-[100%_50%] scale-x-0 transition-transform duration-300 group-hover:origin-[0%_50%] group-hover:scale-x-100" />
@@ -237,7 +231,7 @@ function Portfolio() {
                 ))}
               </div>
             )}
-            {select === "certificates" && (
+            {select === 'certificates' && (
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
                 {certificat.map((item, index) => (
                   <div
@@ -262,31 +256,25 @@ function Portfolio() {
                 ))}
               </div>
             )}
-            {select === "tech" && (
+            {select === 'tech' && (
               <div className="grid grid-cols-4 lg:grid-cols-5 gap-5 md:gap-10">
                 {tech.map((item, index) => {
-                  const aosAnimations = [
-                    "fade-up-right",
-                    "fade-up-left",
-                    "zoom-in-up",
-                  ];
-                  const aosDelays = [200, 300, 400, 500, 600, 700, 800];
+                  const aosAnimations = ['fade-up-right', 'fade-up-left', 'zoom-in-up']
+                  const aosDelays = [200, 300, 400, 500, 600, 700, 800]
 
                   const getRandomUnique = (arr, prev) => {
-                    let filtered = arr.filter((val) => val !== prev);
-                    return filtered[
-                      Math.floor(Math.random() * filtered.length)
-                    ];
-                  };
+                    let filtered = arr.filter((val) => val !== prev)
+                    return filtered[Math.floor(Math.random() * filtered.length)]
+                  }
 
-                  const prevAos = index > 0 ? tech[index - 1]._aos : null;
-                  const prevDelay = index > 0 ? tech[index - 1]._delay : null;
+                  const prevAos = index > 0 ? tech[index - 1]._aos : null
+                  const prevDelay = index > 0 ? tech[index - 1]._delay : null
 
-                  const _aos = getRandomUnique(aosAnimations, prevAos);
-                  const _delay = getRandomUnique(aosDelays, prevDelay);
+                  const _aos = getRandomUnique(aosAnimations, prevAos)
+                  const _delay = getRandomUnique(aosDelays, prevDelay)
 
-                  tech[index]._aos = _aos;
-                  tech[index]._delay = _delay;
+                  tech[index]._aos = _aos
+                  tech[index]._delay = _delay
 
                   return (
                     <div
@@ -303,7 +291,7 @@ function Portfolio() {
                         className="w-full z-1 h-full object-contain"
                       />
                     </div>
-                  );
+                  )
                 })}
               </div>
             )}
@@ -311,7 +299,7 @@ function Portfolio() {
         </div>
       </div>
     </div>
-  );
+  )
 }
 
-export default Portfolio;
+export default Portfolio

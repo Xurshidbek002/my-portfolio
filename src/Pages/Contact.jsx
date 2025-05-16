@@ -143,7 +143,7 @@ function Contact() {
 
       // Telegram javobini tekshirish
       if (response.ok) {
-        toast.success("Fikr Telegramga muvaffaqiyatli yuborildi!");
+        toast.success("Muvaffaqiyatli yuborildi!");
       } else {
         const errorData = await response.json().catch(() => null); // Agar javob JSON bo'lmasa xatolikni oldini olish
         const errorMessage =
@@ -169,7 +169,7 @@ function Contact() {
 
   useEffect(() => {
     setBtnName(t("contact.left.to"));
-  }, [i18n.language, t]); // t ni ham dependency arrayga qo'shish yaxshi amaliyot
+  }, [i18n.language, t]);
 
   const [forms, setforms] = useState({
     name: "",
@@ -178,7 +178,6 @@ function Contact() {
     desc: "",
   });
 
-  // Asosiy ariza uchun handleSubmit (bu funksiyaga tegilmadi)
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -205,12 +204,10 @@ function Contact() {
       }),
     })
       .then((data) => {
-        // Bu yerda data.ok ni tekshirish kerak aslida
         setBtnName(t("contact.left.to2"));
         toast.success("Yuborildi"); // Bu toast asosiy ariza uchun
 
         setTimeout(() => {
-          // setBtnName(t("contact.left.to2")); // Bu qayta o'rnatish noto'g'ri, contact.left.to bo'lishi kerak
           setBtnName(t("contact.left.to")); // To'g'rilandi
         }, 3000);
         setforms({
@@ -251,7 +248,6 @@ function Contact() {
     button.appendChild(circle);
   };
 
-  // JSX qismi o'zgarishsiz
   return (
     <div id="contact">
       <div className="container">
@@ -278,7 +274,6 @@ function Contact() {
               data-aos="zoom-in-right"
               className="flex flex-col gap-4 bg-[#33407641] p-5 rounded-2xl"
             >
-              {/* Inputlar (o'zgarishsiz) */}
               <div className="">
                 <input
                   required
