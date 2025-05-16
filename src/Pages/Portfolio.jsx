@@ -45,7 +45,7 @@ const projects = [
     aos: 'fade-up-right',
     img: portfolio1,
     desc: 'portfolio.card1.text',
-    git: 'https://github.com/Xurshidbek002/IT-TIME-ACADEMY.git',
+    git: 'https://github.com/xurshidweeb/IT-TIME-ACADEMY.git',
     link: 'https://www.ittime-academy.uz/',
   },
   {
@@ -53,7 +53,7 @@ const projects = [
     aos: 'fade-up',
     img: portfolio2,
     desc: 'portfolio.card2.text',
-    git: 'https://github.com/Xurshidbek002/noctella',
+    git: 'https://github.com/xurshidweeb/noctella',
     link: 'https://noctella.uz/collection',
   },
   {
@@ -61,7 +61,7 @@ const projects = [
     aos: 'fade-up-left',
     img: portfolio3,
     desc: 'portfolio.card3.text',
-    git: 'https://github.com/Xurshidbek002/aoron-admin-panel.git',
+    git: 'https://github.com/xurshidweeb/aoron-admin-panel.git',
     link: 'https://aoron-admin-panel-opal.vercel.app/',
   },
 ]
