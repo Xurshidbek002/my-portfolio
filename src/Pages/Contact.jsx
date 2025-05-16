@@ -12,7 +12,7 @@ const links = [
   {
     name: "GitHub",
     icon: <FiGithub />,
-    link: "https://github.com/Xurshidbek002",
+    link: "https://github.com/xurshidweeb",
     color: "white",
   },
   {
